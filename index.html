@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lou Botanicals · Tablero Comercial</title>
+<title>Lou Botanicals · Dashboard General Final v50</title>
+<link rel="icon" type="image/jpeg" href="https://www.loubotanicals.pe/img/logo-17474148271.jpg">
+<link rel="apple-touch-icon" href="https://www.loubotanicals.pe/img/logo-17474148271.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -417,12 +419,123 @@ table.cmp-matrix tbody tr:hover th,table.cmp-matrix tbody tr:hover td{background
 .bcg-large-note{font-size:12px;color:var(--ink-soft);margin:0 0 12px}
 
 
+
+/* proyección de ventas */
+.proy-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:14px;align-items:stretch}
+.proy-span-12{grid-column:span 12}.proy-span-8{grid-column:span 8}.proy-span-6{grid-column:span 6}.proy-span-4{grid-column:span 4}.proy-span-3{grid-column:span 3}
+.proy-card{height:100%;min-width:0;display:flex;flex-direction:column}
+.proy-hero{background:linear-gradient(135deg,#fff,#fceef3);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:12px;box-shadow:var(--shadow-sm)}
+.proy-hero h2{font-size:20px;margin-bottom:6px}.proy-hero p{margin:0;color:var(--ink-soft);font-size:12.5px}.proy-hero .big{font-family:'Fraunces';font-size:34px;color:var(--plum);line-height:1;margin-top:10px}.proy-hero .sub{font-size:12px;color:var(--ink-soft);margin-top:5px}
+.proy-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.proy-mini .box{background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px}.proy-mini .l{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}.proy-mini .v{font-family:'Fraunces';font-size:20px;color:var(--plum);margin-top:4px}.proy-mini .s{font-size:11px;color:var(--ink-soft);margin-top:3px}
+.proy-controls{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;background:var(--blush);border:1px solid var(--line);border-radius:16px;padding:13px 15px;margin-top:14px}.proy-controls .fg{display:flex;flex-direction:column;gap:3px}.proy-controls label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);font-weight:700}
+.proy-scenario{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.proy-scenario .sc{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}.proy-scenario .sc b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}.proy-scenario .sc strong{font-family:'Fraunces';display:block;color:var(--plum);font-size:24px;margin-top:6px}.proy-scenario .sc span{font-size:11px;color:var(--ink-soft)}
+.proy-opps{display:grid;gap:10px}.proy-opp{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}.proy-opp h4{font-family:'DM Sans';font-size:13px;margin:0 0 4px;color:var(--plum);font-weight:800}.proy-opp p{margin:0;color:var(--ink-soft);font-size:12px}.proy-opp .impact{font-weight:800;color:var(--rose-deep);white-space:nowrap}.proy-opp .tag2{display:inline-flex;margin-top:7px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;border-radius:20px;padding:3px 8px;background:var(--blush);color:var(--rose-deep)}
+.proy-matrix{overflow:auto;border:1px solid var(--line);border-radius:14px;margin-top:10px}.proy-matrix table{width:100%;border-collapse:separate;border-spacing:0;font-size:12px;min-width:900px}.proy-matrix th,.proy-matrix td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}.proy-matrix th{background:var(--plum);color:#fff;text-align:right;position:sticky;top:0;z-index:2}.proy-matrix th:first-child{text-align:left;left:0;z-index:3}.proy-matrix td{text-align:right;background:#fff}.proy-matrix td:first-child{position:sticky;left:0;background:#fff;text-align:left;font-weight:700;color:var(--plum);z-index:1}.proy-matrix tr:nth-child(even) td,.proy-matrix tr:nth-child(even) td:first-child{background:var(--cream)}.proy-cell-main{font-weight:800;color:var(--plum);font-variant-numeric:tabular-nums}.proy-cell-sub{font-size:10.5px;color:var(--ink-soft);margin-top:3px}.proy-bar{height:7px;border-radius:999px;background:#f1e4ea;margin-top:6px;overflow:hidden}.proy-bar i{display:block;height:100%;border-radius:999px;background:var(--rose)}
+@media(max-width:1200px){.proy-span-8,.proy-span-6,.proy-span-4,.proy-span-3{grid-column:span 12}.proy-hero{grid-template-columns:1fr}.proy-mini,.proy-scenario{grid-template-columns:1fr}}
+
 </style>
+
+<style id="lou-soft-matte-theme">
+:root{
+  --rose:#d7a1ae; --rose-deep:#a96f7d; --plum:#785760; --plum-deep:#60464f;
+  --powder:#f4dfe5; --nude:#ead7c8; --blush:#fff2f4; --cream:#fbf6ef;
+  --ink:#35282c; --ink-soft:#756269; --line:#eadbd8; --line-soft:#f6ece8;
+  --shadow:0 1px 2px rgba(96,70,79,.06),0 8px 28px rgba(96,70,79,.07);
+  --shadow-sm:0 1px 2px rgba(96,70,79,.08);
+}
+body{background:linear-gradient(180deg,#fbf6ef 0%,#fffaf6 100%);}
+#sidebar{background:linear-gradient(180deg,#f4dfe5 0%,#ead7c8 100%);color:var(--ink);border-right:1px solid #eadbd8;}
+.brand .mark.logo{width:42px;height:42px;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 4px 14px rgba(120,87,96,.13);padding:4px;}
+.brand .mark.logo img{width:100%;height:100%;object-fit:contain;display:block;border-radius:10px;}
+.brand .t b{color:var(--plum-deep);font-size:16px;}
+.brand .t span{color:var(--rose-deep);font-weight:700;}
+.nav button{color:#7b6168;}
+.nav button:hover{background:rgba(169,111,125,.13);color:var(--plum-deep);}
+.nav button.active{background:#fff7f8;color:var(--rose-deep);box-shadow:0 1px 2px rgba(120,87,96,.08);}
+.nav .sep{background:#e5d2cf;}
+.nav .lbl{color:#a97885;font-weight:700;}
+.side-foot{color:#8e7279;}
+#topbar{background:rgba(251,246,239,.88);}
+.btn.primary{background:#b9828e;border-color:#b9828e;color:#fff;}
+.btn.primary:hover{background:#a96f7d;border-color:#a96f7d;color:#fff;}
+.kpi .v,.mini-v{color:#6f4d57;}
+.card{background:rgba(255,255,255,.86);}
+.sheet-source-pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #eadbd8;background:#fff7f8;color:#8d6470;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:700;}
+</style>
+
+<script>
+window.__LOU_APP_SCRIPT_ONLY__ = true;
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+<style id="lou-v52-clean-map-css">
+/* v51 cleanup + mapa demográfico PrestaShop */
+#topbar button[data-v51-hide="1"]{display:none!important}
+.lb-map-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:16px;margin-top:16px}
+.lb-map-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px;overflow:hidden}
+.lb-map-wrap{height:620px;min-height:560px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#fffaf7,#f8e9ef);position:relative;overflow:hidden}
+#lbPeruMapSvg{width:100%;height:100%;display:block;cursor:grab}
+#lbPeruMapSvg:active{cursor:grabbing}
+.lb-dept{stroke:#fff;stroke-width:1.15;vector-effect:non-scaling-stroke;cursor:pointer;transition:.15s ease}
+.lb-dept:hover{filter:drop-shadow(0 10px 14px rgba(94,54,80,.24));stroke-width:1.8}
+.lb-dept.active{stroke:#5e3650;stroke-width:2.2;filter:drop-shadow(0 12px 18px rgba(176,119,141,.34))}
+.lb-map-tip{position:fixed;z-index:999;pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 16px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 40px rgba(94,54,80,.18);padding:12px;min-width:230px;max-width:310px;font-size:12px}
+.lb-map-tip.show{opacity:1}
+.lb-map-tip h4{margin:0 0 8px;font-family:Georgia,serif;color:var(--plum);font-size:16px}
+.lb-map-tip .r{display:flex;justify-content:space-between;gap:16px;margin-top:6px}
+.lb-map-bar{display:grid;grid-template-columns:160px 1fr 108px;gap:10px;align-items:center;font-size:12px;margin:8px 0}
+.lb-map-bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-map-track{height:12px;border-radius:999px;background:#f1e4ea;overflow:hidden}
+.lb-map-track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#c78aa0,#8f5a70)}
+.lb-map-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.lb-map-controls select,.lb-map-controls input{height:38px;border:1px solid var(--line);border-radius:10px;padding:0 10px;background:#fff}
+.lb-clean-hidden{display:none!important}
+@media(max-width:1100px){.lb-map-grid{grid-template-columns:1fr}.lb-map-wrap{height:520px}}
+</style>
+
+
+<style id="lou-v53-demografia-productos-css">
+#nav [data-tab="ventas_demograficas_v53"]{background:linear-gradient(90deg,rgba(185,130,142,.16),rgba(255,255,255,.05));}
+.lbv53-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:16px;margin-top:16px}
+.lbv53-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px;overflow:hidden}
+.lbv53-map{height:590px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fffaf7,#f8e9ef);position:relative;overflow:hidden}
+#lbv53PeruSvg{width:100%;height:100%;display:block;cursor:grab}
+#lbv53PeruSvg:active{cursor:grabbing}
+.lbv53-dept{stroke:#fff;stroke-width:1.2;vector-effect:non-scaling-stroke;cursor:pointer;transition:.15s ease}
+.lbv53-dept:hover{stroke:#5e3650;stroke-width:2;filter:drop-shadow(0 10px 14px rgba(94,54,80,.23))}
+.lbv53-dept.active{stroke:#5e3650;stroke-width:2.4;filter:drop-shadow(0 12px 18px rgba(176,119,141,.36))}
+.lbv53-tip{position:fixed;z-index:9999;pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 16px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 40px rgba(94,54,80,.18);padding:12px;min-width:230px;max-width:310px;font-size:12px}
+.lbv53-tip.show{opacity:1}
+.lbv53-tip h4{margin:0 0 8px;font-family:Georgia,serif;color:var(--plum);font-size:16px}
+.lbv53-tip .r{display:flex;justify-content:space-between;gap:16px;margin-top:6px}
+.lbv53-zone{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.lbv53-zone select,.lbv53-zone input{height:38px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 10px}
+.lbv53-bars{display:grid;gap:8px;margin-top:10px}
+.lbv53-bar{display:grid;grid-template-columns:145px 1fr 112px;gap:10px;align-items:center;font-size:12px}
+.lbv53-bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbv53-track{height:12px;border-radius:999px;background:#f1e4ea;overflow:hidden}
+.lbv53-track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#c78aa0,#8f5a70)}
+.lbv53-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.lbv53-kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;box-shadow:var(--shadow)}
+.lbv53-kpi .l{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#8a737b;font-weight:900}
+.lbv53-kpi .v{font-family:Georgia,serif;font-size:23px;color:#7c5664;font-weight:900;margin-top:6px}
+.lbv53-kpi .s{font-size:11px;color:var(--muted);margin-top:5px}
+.lbv53-table{width:100%;border-collapse:collapse;font-size:12px}
+.lbv53-table th,.lbv53-table td{padding:9px 8px;border-bottom:1px solid #f0e4e1;text-align:left;vertical-align:top}
+.lbv53-table th{background:#6b3f58;color:#fff;text-transform:uppercase;letter-spacing:.05em;font-size:10px;position:sticky;top:0}
+.lbv53-table td.num{text-align:right;font-variant-numeric:tabular-nums}
+.lbv53-scroll{max-height:540px;overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.lbv53-note{background:#fff4d7;border:1px solid #ecd69e;color:#755511;padding:12px 14px;border-radius:14px;font-size:12px;line-height:1.45;margin-top:12px}
+.lb-clean-hidden{display:none!important}
+@media(max-width:1100px){.lbv53-grid{grid-template-columns:1fr}.lbv53-kpis{grid-template-columns:1fr 1fr}.lbv53-map{height:520px}}
+</style>
+
 </head>
 <body>
 <div id="app">
   <aside id="sidebar">
-    <div class="brand"><div class="mark">L</div><div class="t"><b>Lou Botanicals</b><span>Tablero comercial</span></div></div>
+    <div class="brand"><div class="mark logo"><img src="https://www.loubotanicals.pe/img/logo-17474148271.jpg" alt="Lou Botanicals"></div><div class="t"><b>Lou Botanicals</b><span>Panel decisional v50</span></div></div>
     <nav class="nav" id="nav"></nav>
     <div class="side-foot">
       <div><span class="dot" id="persistDot"></span><span id="persistTxt">Verificando persistencia…</span></div>
@@ -434,9 +547,9 @@ table.cmp-matrix tbody tr:hover th,table.cmp-matrix tbody tr:hover td{background
       <div><div class="ttl" id="pageTitle">Resumen ejecutivo</div><div class="sub" id="pageSub">Decisiones comerciales y publicitarias sobre venta real cuadrada contra ERP</div></div>
       <div class="spacer"></div>
       <button class="btn ghost sm" id="btnFiltersToggle">Filtros</button>
-      <button class="btn sm" onclick="App.exportBackup()">Descargar respaldo</button>
-      <button class="btn sm" onclick="App.exportPortableHTML()">Exportar HTML liviano</button>
-      <button class="btn sm" onclick="App.exportGitHubIndexHTML()">Index GitHub liviano</button>
+      <button class="btn sm" onclick="App.exportBackup()"></button>
+      <button class="btn sm" onclick="App.exportPortableHTML()"></button>
+      <button class="btn sm" onclick="App.exportGitHubIndexHTML()"></button>
       <button class="btn primary sm" onclick="App.go('cargar')">Cargar datos</button>
     </div>
     <div id="content"></div>
@@ -447,7 +560,7 @@ table.cmp-matrix tbody tr:hover th,table.cmp-matrix tbody tr:hover td{background
 <script>
 "use strict";
 /* ============================================================
-   LOU BOTANICALS · Tablero comercial — motor de datos
+   LOU BOTANICALS · Panel decisional v50 — motor de datos
    Único archivo, IndexedDB, sin build. KPI primario sin IGV.
    ============================================================ */
 const IGV_FACTOR = 1.18;
@@ -814,21 +927,74 @@ const App={
     this.publicidadManual=await DB.all("rawPublicidadManual");
     this.clientesOverrides=await DB.all("rawClientesOverrides");
     this.conciliacionesManuales=await DB.all("rawConciliacionesManuales");
-    this.cargas=await DB.all("cargas");
-    this.auditLog=await DB.all("auditLog");
-    const km=await DB.all("rawKpiConfig"); this.kpiConfig= km.length? km : JSON.parse(JSON.stringify(DEFAULT_KPI));
-    const cm=await DB.all("rawCanalMapping"); this.canalMap= cm.length? cm : JSON.parse(JSON.stringify(DEFAULT_CANAL_MAP));
+    this.cargas=(await DB.all("cargas")).map(c=>this.normalizeCargaObj?this.normalizeCargaObj(c):c);
+    this.auditLog=(await DB.all("auditLog")).map(a=>this.normalizeAuditObj?this.normalizeAuditObj(a):a);
+    const km=await DB.all("rawKpiConfig"); this.kpiConfig=this.normalizeKpiConfig?this.normalizeKpiConfig(km):(km.length?km:JSON.parse(JSON.stringify(DEFAULT_KPI)));
+    const cm=await DB.all("rawCanalMapping"); this.canalMap=this.normalizeCanalMap?this.normalizeCanalMap(cm): (cm.length? cm : JSON.parse(JSON.stringify(DEFAULT_CANAL_MAP)));
     const cfg=await DB.get("config","main"); if(cfg)this.config=Object.assign(JSON.parse(JSON.stringify(DEFAULT_CONFIG)),cfg);
   },
   async saveStore(store,arr){ await DB.clear(store); for(const x of arr){ if(x._k==null)x._k=uid(); await DB.put(store,x._k,x); } },
   async saveConfig(){ await DB.put("config","main",this.config); },
 
+  normalizeBool(v){ return !(v===false || v===0 || String(v).toLowerCase()==="false" || String(v).toLowerCase()==="0" || String(v).toLowerCase()==="no"); },
+  normalizeKpiConfig(list){
+    const base=JSON.parse(JSON.stringify(DEFAULT_KPI)).map((x,i)=>({_k:x._k||("kpi_def_"+i),...x}));
+    const by=new Map(base.map(x=>[x.idKPI||x._k,x]));
+    (list||[]).forEach((x,i)=>{ if(!x||typeof x!=="object")return; const id=x.idKPI||x._k||("kpi_"+i); by.set(id,{...x,_k:x._k||("kpi_"+i+"_"+hashStr(id)),activo:this.normalizeBool(x.activo)}); });
+    return [...by.values()];
+  },
+  inferCanalByText(centro){
+    const k=nh(centro);
+    if(!k)return null;
+    const has=(...xs)=>xs.some(x=>k.includes(x));
+    if(has("whatsapp","whatapp","wsp","wa "," wa"))return {ambito:"Digital",canal:"WHATSAPP",centroLabel:"WHATSAPP",known:true,reason:"inferido por texto"};
+    if(has("instagram","insta","ig"))return {ambito:"Digital",canal:"INSTAGRAM",centroLabel:"INSTAGRAM",known:true,reason:"inferido por texto"};
+    if(has("messenger"))return {ambito:"Digital",canal:"MESSENGER",centroLabel:"MESSENGER",known:true,reason:"inferido por texto"};
+    if(has("tik tok","tiktok"))return {ambito:"Digital",canal:"TIKTOK",centroLabel:"TIKTOK",known:true,reason:"inferido por texto"};
+    if(has("web","loubotanicals pe","venta web","ecommerce","e-commerce"))return {ambito:"Digital",canal:"WEB",centroLabel:"WEB",known:true,reason:"inferido por texto"};
+    if(has("rappi"))return {ambito:"Digital",canal:"RAPPI",centroLabel:"RAPPI",known:true,reason:"inferido por texto"};
+    if(has("yape tienda","yapetienda"))return {ambito:"Digital",canal:"YAPE TIENDA",centroLabel:"YAPE TIENDA",known:true,reason:"inferido por texto"};
+    if(k==="yape"||has(" yape "))return {ambito:"Digital",canal:"YAPE",centroLabel:"YAPE",known:true,reason:"inferido por texto"};
+    if(has("jockey"))return {ambito:"Presencial",canal:"JOCKEY",centroLabel:"JOCKEY",known:true,reason:"inferido por texto"};
+    if(has("dasso"))return {ambito:"Presencial",canal:"DASSO",centroLabel:"DASSO",known:true,reason:"inferido por texto"};
+    if(has("showroom","a fuentes","manuel a fuentes"))return {ambito:"Presencial",canal:"SHOWROOM",centroLabel:"SHOWROOM",known:true,reason:"inferido por texto"};
+    if(has("tienda","tiendas","retail","inretail","ripley"))return {ambito:"Presencial",canal:"RETAIL",centroLabel:"RETAIL",known:true,reason:"inferido por texto"};
+    if(has("feria","stand"))return {ambito:"Presencial",canal:"FERIA",centroLabel:"FERIA",known:true,reason:"inferido por texto"};
+    if(has("masterclass","master class"))return {ambito:"Otros",canal:"MASTERCLASS",centroLabel:"MASTERCLASS",known:true,reason:"inferido por texto"};
+    if(has("taller"))return {ambito:"Otros",canal:"TALLER",centroLabel:"TALLER",known:true,reason:"inferido por texto"};
+    if(has("vision board","visión board"))return {ambito:"Otros",canal:"VISION BOARD",centroLabel:"VISION BOARD",known:true,reason:"inferido por texto"};
+    if(has("sale"))return {ambito:"Otros",canal:"SALE",centroLabel:"SALE",known:true,reason:"inferido por texto"};
+    if(has("obsequio"))return {ambito:"Otros",canal:"OBSEQUIO",centroLabel:"OBSEQUIO",known:true,reason:"inferido por texto"};
+    if(has("corporativo"))return {ambito:"Otros",canal:"CORPORATIVO",centroLabel:"CORPORATIVO",known:true,reason:"inferido por texto"};
+    if(has("cooperativa"))return {ambito:"Otros",canal:"COOPERATIVA",centroLabel:"COOPERATIVA",known:true,reason:"inferido por texto"};
+    if(has("internacional"))return {ambito:"Digital",canal:"INTERNACIONAL",centroLabel:"INTERNACIONAL",known:true,reason:"inferido por texto"};
+    if(has("live"))return {ambito:"Digital",canal:"LIVE",centroLabel:"LIVE",known:true,reason:"inferido por texto"};
+    return null;
+  },
+  normalizeCanalMap(list){
+    const by=new Map();
+    const clean=(m,i,prefix)=>{
+      if(!m||typeof m!=="object")return null;
+      const centro=normTxt(m.centroIngresoERP ?? m.centro ?? m.centroERP ?? "");
+      const inf=this.inferCanalByText(centro);
+      const canal=normTxt(m.canalNormalizado ?? m.canal ?? (inf&&inf.canal) ?? "SIN ASIGNAR").toUpperCase()||"SIN ASIGNAR";
+      const amb=normTxt(m.ambitoComercial ?? m.ambito ?? (inf&&inf.ambito) ?? (canal==="SIN ASIGNAR"?"Otros":"Otros"))||"Otros";
+      return {_k:m._k||(`${prefix}_${i}_${hashStr(centro+"|"+canal+"|"+amb)}`),centroIngresoERP:centro,ambitoComercial:amb,canalNormalizado:canal,activo:this.normalizeBool(m.activo),observacion:normTxt(m.observacion||"")};
+    };
+    JSON.parse(JSON.stringify(DEFAULT_CANAL_MAP)).forEach((m,i)=>{ const c=clean(m,i,"defmap"); if(c)by.set(nh(c.centroIngresoERP),c); });
+    (list||[]).forEach((m,i)=>{ const c=clean(m,i,"usermap"); if(c)by.set(nh(c.centroIngresoERP),c); });
+    return [...by.values()];
+  },
   /* ---- canal lookup ---- */
   canalLookup(centro){
     const k=nh(centro);
-    let m=this.canalMap.find(x=>nh(x.centroIngresoERP)===k && x.activo);
-    if(!m && k==="") m=this.canalMap.find(x=>x.centroIngresoERP===""&&x.activo);
-    if(m)return {ambito:m.ambitoComercial,canal:m.canalNormalizado,known:true,centroLabel:centro||"(vacío)",inferred:false,reason:"mapeo literal"};
+    const maps=(this.canalMap&&this.canalMap.length?this.canalMap:this.normalizeCanalMap([])).filter(x=>x&&x.activo!==false);
+    let m=maps.find(x=>nh(x.centroIngresoERP)===k);
+    if(!m && k){ m=maps.find(x=>{ const mk=nh(x.centroIngresoERP); return mk && (k.includes(mk)||mk.includes(k)); }); }
+    if(m){ const canal=normTxt(m.canalNormalizado||"SIN ASIGNAR").toUpperCase(); return {ambito:m.ambitoComercial||"Otros",canal,known:canal!=="SIN ASIGNAR",centroLabel:canal!=="SIN ASIGNAR"?canal:(centro||"(vacío)"),inferred:false,reason:"mapeo normalizado"}; }
+    const inf=this.inferCanalByText(centro);
+    if(inf)return {...inf,inferred:false};
+    if(!k)return {ambito:"Otros",canal:"SIN ASIGNAR",known:false,centroLabel:"(vacío)",inferred:false,reason:"centro vacío sin evidencia"};
     return {ambito:"Otros",canal:"SIN ASIGNAR",known:false,centroLabel:centro||"(vacío)",inferred:false,reason:"sin mapeo"};
   },
   serieSuffix(serie){ const m=String(serie==null?"":serie).match(/(\d+)\s*$/); return m?parseInt(m[1],10):null; },
@@ -878,6 +1044,7 @@ const App={
   /* ============ MODEL BUILD ============ */
   rebuild(){
     const t0=performance.now();
+    this.dedupeRuntime&&this.dedupeRuntime();
     const m={ generated:Date.now() };
     // 1) comprobantes index
     m.compByKey={}; this.comprobantes.forEach(c=>{ m.compByKey[c.docKey]=c; });
@@ -899,8 +1066,8 @@ const App={
     m.webReconCount=0; m.webReconMonto=0;
     if(this.config.webFromPresta!==false){
       const webKeys=m.recon.used||new Set();
-      this.comprobantes.forEach(c=>{ if(webKeys.has(c.docKey) && (!c._known||!c._canal||c._canal==="SIN ASIGNAR")){ c._canal="WEB"; c._ambito="Digital"; c._centroAgrupado="WEB"; c._centroInferido=true; c._centroRazon="centro vacío recuperado por match PrestaShop"; c._webRecon=true; m.webReconCount++; m.webReconMonto+=c.montoSinIGV; } });
-      this.detalle.forEach(d=>{ if(webKeys.has(d.docKey) && (!d._known||!d._canal||d._canal==="SIN ASIGNAR")){ d._canal="WEB"; d._ambito="Digital"; d._centroAgrupado="WEB"; d._centroInferido=true; d._centroRazon="centro vacío recuperado por match PrestaShop"; d._webRecon=true; } });
+      this.comprobantes.forEach(c=>{ const blank=!nh(c.centroIngresoERP); if(webKeys.has(c.docKey) && blank && (!c._known||!c._canal||c._canal==="SIN ASIGNAR")){ c._canal="WEB"; c._ambito="Digital"; c._centroAgrupado="WEB"; c._centroInferido=true; c._centroRazon="centro vacío recuperado por match PrestaShop"; c._webRecon=true; m.webReconCount++; m.webReconMonto+=c.montoSinIGV; } });
+      this.detalle.forEach(d=>{ const blank=!nh(d.centroIngresoERP); if(webKeys.has(d.docKey) && blank && (!d._known||!d._canal||d._canal==="SIN ASIGNAR")){ d._canal="WEB"; d._ambito="Digital"; d._centroAgrupado="WEB"; d._centroInferido=true; d._centroRazon="centro vacío recuperado por match PrestaShop"; d._webRecon=true; } });
     }
     // 5) RFM clientes
     m.clientes=this.buildClientes();
@@ -1088,6 +1255,7 @@ const TABS=[
   {id:"digital",label:"Canales digitales",ico:"",grp:"analisis"},
   {id:"presencial",label:"Canales presenciales",ico:"",grp:"analisis"},
   {id:"comparativos_kpi",label:"Comparativos KPI",ico:"",grp:"analisis"},
+  {id:"proyeccion",label:"Proyección de ventas",ico:"",grp:"analisis"},
   {id:"centros",label:"Centros de ingresos",ico:"",grp:"analisis"},
   {id:"vendedoras",label:"Vendedoras",ico:"",grp:"analisis"},
   {id:"masterclass",label:"Masterclass",ico:"",grp:"analisis"},
@@ -1119,10 +1287,11 @@ App.go=function(id){
   $$("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));
   const t=TABS.find(x=>x.id===id)||TABS[1];
   $("#pageTitle").textContent=t.label;
-  const subs={cargar:"Arrastra los Excel ERP, PrestaShop, metas y Meta Ads",
+  const subs={cargar:"Sincronización desde Google Sheets",
     resumen:"Venta real cuadrada contra ERP · KPI primario sin IGV",
     marketing:"Rendimiento Meta Ads · KPI operativos y conciliación de gasto",
     comparativos_kpi:"Comparación año contra año por canal, centro de ingresos y tipo de venta",
+    proyeccion:"Forecast mensual/anual, brecha contra meta y oportunidades de campaña por sede",
     bcg:"Matriz BCG por producto, pack, centro, serie y mes",
     envios:"Control operativo de cobros/gastos de envío por Provincia, Express y Regular Lima",
     conciliaciones:"Cruce ERP↔detalle y PrestaShop↔ERP con semáforos",
@@ -1157,13 +1326,13 @@ App.render=function(id){
     if(this["after_"+id])this["after_"+id].call(this);
   }catch(e){
     console.error("Render error in tab",id,e);
-    c.innerHTML=`<div class="card"><div class="empty"><div class="e-ic">ERR</div><div class="e-t">No se pudo abrir esta pestaña</div><div class="muted">${esc(e&&e.message?e.message:e)}</div><div style="margin-top:14px"><button class="btn" onclick="App.go('cargar')">Ir a Cargar datos</button><button class="btn" onclick="App.exportBackup()">Descargar respaldo</button></div></div></div>`;
+    c.innerHTML=`<div class="card"><div class="empty"><div class="e-ic">ERR</div><div class="e-t">No se pudo abrir esta pestaña</div><div class="muted">${esc(e&&e.message?e.message:e)}</div><div style="margin-top:14px"><button class="btn" onclick="App.go('cargar')">Ir a Cargar datos</button><button class="btn" onclick="App.exportBackup()"></button></div></div></div>`;
   }
 };
 App.emptyState=function(){
   return `<div class="card"><div class="empty"><div class="e-ic">LB</div>
     <div class="e-t">Aún no hay datos cuadrados</div>
-    <div>Carga los comprobantes ERP, el detalle ERP, PrestaShop, metas y Meta Ads para activar el tablero.</div>
+    <div>Actualiza los datos desde Google Sheets para activar el tablero.</div>
     <div style="margin-top:16px"><button class="btn primary" onclick="App.go('cargar')">Cargar datos</button></div></div></div>`;
 };
 
@@ -1404,10 +1573,45 @@ App.commitIngest=async function(){
     this.auditLog.push({_k:uid(),t:Date.now(),ev:"carga",detalle:p.fileName+" ("+p.type+") +"+p.nuevos}); 
   }
   await this.saveStore("auditLog",this.auditLog);
+  const deduped=await this.persistDedupedCore();
   this.pending=[];
   this.rebuild(); this.updateMeta(); this.checkPersistence();
+  if(deduped)this.toast("Duplicados exactos eliminados: "+fmt.int(deduped),"warn");
   this.toast("Datos integrados y cuadrados","ok");
   this.go("resumen");
+};
+
+
+/* ===================== CONTROL ANTI-DUPLICADOS DE CARGA ===================== */
+App.recordFingerprint=function(store,r){
+  const clean=v=>nh(v==null?"":v);
+  const n2=v=>String(round2(num(v))).replace(/\.00$/,'');
+  if(store==="rawComprobantesERP")return [r.docKey].join('|');
+  if(store==="rawDetalleERP")return [r.docKey,clean(r.codigoInt),clean(r.nombre),clean(r.categoria),n2(r.cantidad),n2(r.valorVtaTot),n2(r.precioVtaTot)].join('|');
+  if(store==="rawPrestaShop")return [r.idOrder,r.idDet,clean(r.lineType),clean(r.sku),clean(r.productName),clean(r.componentSku),clean(r.componentName),n2(r.qty),n2(r.componentQty),n2(r.lineTotalIncl)].join('|');
+  if(store==="rawMetaAds")return [r.ym,clean(r.campania),clean(r.objetivo),n2(r.gasto),n2(r.resultados),n2(r.impresiones)].join('|');
+  if(store==="rawMetas")return [r.anio,r.mes,clean(r.canal),clean(r.linea),clean(r.tipoMeta)].join('|');
+  if(store==="rawSkuOverrides")return [clean(r.codigoInt),clean(r.skuLB),clean(r.nombrePrincipal)].join('|');
+  return r._k||JSON.stringify(r);
+};
+App.dedupeArray=function(store,arr){
+  const seen=new Set(), out=[]; let removed=0;
+  (arr||[]).forEach(r=>{ const fp=this.recordFingerprint(store,r); if(seen.has(fp)){ removed++; return; } seen.add(fp); out.push(r); });
+  return {arr:out,removed};
+};
+App.dedupeRuntime=function(){
+  const map={rawComprobantesERP:'comprobantes',rawDetalleERP:'detalle',rawPrestaShop:'presta',rawMetaAds:'metaAds',rawMetas:'metas',rawSkuOverrides:'skuOverrides'};
+  let removed=0;
+  Object.entries(map).forEach(([store,key])=>{ const r=this.dedupeArray(store,this[key]||[]); if(r.removed){ this[key]=r.arr; removed+=r.removed; } });
+  this._lastDedupeRemoved=removed;
+  return removed;
+};
+App.persistDedupedCore=async function(){
+  const map={rawComprobantesERP:'comprobantes',rawDetalleERP:'detalle',rawPrestaShop:'presta',rawMetaAds:'metaAds',rawMetas:'metas',rawSkuOverrides:'skuOverrides'};
+  let removed=0;
+  for(const [store,key] of Object.entries(map)){ const r=this.dedupeArray(store,this[key]||[]); if(r.removed){ this[key]=r.arr; await this.saveStore(store,this[key]); removed+=r.removed; } }
+  if(removed){ this.auditLog.push({_k:uid(),t:Date.now(),ev:'dedupe',detalle:'Filas duplicadas exactas removidas: '+removed}); await this.saveStore('auditLog',this.auditLog); }
+  return removed;
 };
 
 /* ===================== TABLE / CHART HELPERS ===================== */
@@ -1459,7 +1663,7 @@ App.chart=function(canvasId,cfg){
   Chart.defaults.font.family="DM Sans"; Chart.defaults.color="#6b5460"; Chart.defaults.font.size=11.5;
   this._charts[canvasId]=new Chart(el,cfg);
 };
-App.palette=["#c25b7e","#5e3650","#e0a4b8","#9d3f60","#caa27e","#7d5e93","#d98a4f","#a8c0a0","#b8889b","#86566e"];
+App.palette=["#b9828e","#785760","#d7a1ae","#a96f7d","#c9aa92","#b8919b","#e3b6bc","#d9c7b9","#c796a3","#8f6a73"];
 </script>
 <script>
 /* kpi card helper */
@@ -1483,7 +1687,7 @@ App.tab_cargar=function(){
     ["SKU normalizados",this.skuOverrides.length,"catálogo maestro de nombres"]];
   return `<div class="banner"><div>Advertencia</div><div><b>Usa este tablero desde el enlace publicado en GitHub Pages.</b> La persistencia IndexedDB puede no funcionar al abrir el archivo directamente (file://) o desde una vista previa.</div></div>
   <div class="card"><div class="drop" id="drop">
-    <div class="big">Arrastra tus archivos Excel aquí</div>
+    <div class="big">Sincronización desde Google Sheets</div>
     <div class="small">Comprobantes ERP · Detalle ERP · PrestaShop · Metas · Meta Ads · SKU normalizados CSV — la fuente se detecta automáticamente por la firma de columnas.</div>
     <div style="margin-top:14px"><button class="btn primary" onclick="document.getElementById('fileInput').click()">Seleccionar archivos</button></div>
     <input type="file" id="fileInput" multiple accept=".xlsx,.xls,.csv" class="hidden">
@@ -2144,6 +2348,168 @@ App.canalTab=function(ambito){
   </div>
   <div class="card" style="margin-top:16px"><h3 style="margin-bottom:10px">Detalle por canal</h3>${this.table("tbl_"+cardId,cols,rows,{sort:"venta"})}</div>`;
 };
+
+/* ===================== PROYECCIÓN DE VENTAS Y OPORTUNIDADES ===================== */
+App.proyYears=function(){
+  const ys=new Set([new Date().getFullYear()]);
+  (this.comprobantes||[]).forEach(c=>{ if(c.fecha)ys.add(c.fecha.getFullYear()); });
+  (this.metas||[]).forEach(m=>{ if(m.anio)ys.add(+m.anio); });
+  return [...ys].filter(y=>y>=2020&&y<=2035).sort((a,b)=>a-b);
+};
+App.proyDefaultPeriod=function(){
+  const valid=(this.comprobantes||[]).filter(c=>c.fecha&&!c.anulado&&!c.esNC).sort((a,b)=>b.fecha-a.fecha);
+  if(valid.length)return {y:valid[0].fecha.getFullYear(),m:valid[0].fecha.getMonth()+1};
+  const d=new Date(); return {y:d.getFullYear(),m:d.getMonth()+1};
+};
+App.proyPass=function(c,mode){
+  const f=this.filters||{}; if(!c||!c.fecha)return false;
+  if(c.anulado && !f.incAnulados)return false; if(c.esNC)return false;
+  const aamb=this.selArr('ambito'), acan=this.selArr('canal'), acen=this.selArr('centro').map(nh), aven=this.selArr('vendedor').map(nh), ased=this.selArr('sede'), atip=this.selArr('tipocli');
+  if(mode && c._ambito!==mode)return false;
+  if(aamb.length&&!aamb.includes(c._ambito))return false;
+  if(acan.length&&!acan.includes(c._canal))return false;
+  if(acen.length && !this.rowCenterMatch(c,acen))return false;
+  if(aven.length&&!aven.includes(nh(c.vendedor)))return false;
+  if(ased.length&&!ased.includes(c._sede))return false;
+  if(atip.length&&!atip.includes(c._tipoCli))return false;
+  return true;
+};
+App.proyRows=function(mode){ return (this.comprobantes||[]).filter(c=>this.proyPass(c,mode)); };
+App.proyDetPass=function(d,mode){
+  const f=this.filters||{}; if(!d||!d.fecha)return false; if(d.anulado && !f.incAnulados)return false; if(d.esNC)return false;
+  const aamb=this.selArr('ambito'), acan=this.selArr('canal'), acen=this.selArr('centro').map(nh), aven=this.selArr('vendedor').map(nh), ased=this.selArr('sede'), atip=this.selArr('tipocli');
+  const acat=this.selArr('categoria').map(nh), apro=this.selArr('producto').map(nh), alin=this.selArr('linea');
+  if(mode && d._ambito!==mode)return false;
+  if(aamb.length&&!aamb.includes(d._ambito))return false;
+  if(acan.length&&!acan.includes(d._canal))return false;
+  if(acen.length && !this.rowCenterMatch(d,acen))return false;
+  if(aven.length&&!aven.includes(nh(d.vendedor)))return false;
+  if(ased.length&&!ased.includes(d._sede))return false;
+  if(atip.length&&!atip.includes(d._tipoCli))return false;
+  if(acat.length&&!acat.includes(nh(d.categoria)))return false;
+  if(apro.length&&!apro.includes(nh(d._prod)))return false;
+  if(alin.length){ const isMC=!!d._mc; if(isMC&&!alin.includes('MASTERCLASS'))return false; if(!isMC&&!alin.includes('PRODUCTOS'))return false; }
+  if(f.excMC&&d._mc)return false;
+  return true;
+};
+App.proyDetRows=function(mode){ return (this.detalle||[]).filter(d=>this.proyDetPass(d,mode)); };
+App.proyMetaMonth=function(year,month,mode){
+  const canalSel=this.selArr('canal');
+  let rows=(this.metas||[]).filter(x=>x.anio==year&&x.mes==month);
+  if(canalSel.length)rows=rows.filter(x=>canalSel.includes(x.canal));
+  if(mode==='Digital'){
+    const dig=new Set(['WEB','WHATSAPP','INSTAGRAM','MESSENGER','TIKTOK','FACEBOOK','CUPO MASTERCLASS']);
+    rows=rows.filter(x=>dig.has(x.canal));
+  }
+  if(mode==='Presencial'){
+    const pres=new Set(['JOCKEY','DASSO','SHOWROOM','RETAIL','FERIA']);
+    rows=rows.filter(x=>pres.has(x.canal));
+  }
+  return rows.reduce((s,x)=>s+(x.meta||0),0);
+};
+App.proyMetaYear=function(year,mode){ let t=0; for(let m=1;m<=12;m++)t+=this.proyMetaMonth(year,m,mode); return t; };
+App.proyCalc=function(year,month,mode){
+  const rows=this.proyRows(mode);
+  const inYear=rows.filter(c=>c.fecha.getFullYear()===year);
+  const monthRows=inYear.filter(c=>c.fecha.getMonth()+1===month);
+  const maxDay=monthRows.length?Math.max(...monthRows.map(c=>c.fecha.getDate())):0;
+  const daysInMonth=new Date(year,month,0).getDate();
+  const elapsed=Math.max(1,Math.min(maxDay||daysInMonth,daysInMonth));
+  const monthActual=monthRows.reduce((s,c)=>s+c.montoSinIGV,0);
+  const monthActualCon=monthRows.reduce((s,c)=>s+c.montoConIGV,0);
+  const monthOrders=monthRows.length;
+  const runRate=monthActual/elapsed;
+  const projBase=elapsed>=daysInMonth?monthActual:runRate*daysInMonth;
+  const prevSame=rows.filter(c=>c.fecha.getFullYear()===year-1&&c.fecha.getMonth()+1===month).reduce((s,c)=>s+c.montoSinIGV,0);
+  const histVals=[...new Set(rows.map(c=>c.fecha.getFullYear()))].filter(y=>y<year).map(y=>rows.filter(c=>c.fecha.getFullYear()===y&&c.fecha.getMonth()+1===month).reduce((s,c)=>s+c.montoSinIGV,0)).filter(v=>v>0);
+  const histAvg=histVals.length?histVals.reduce((a,b)=>a+b,0)/histVals.length:0;
+  const projSeasonal=histAvg&&monthActual?Math.max(projBase,(projBase*.65+histAvg*.35)):projBase;
+  const projConserv=projSeasonal*.92;
+  const projAggr=projSeasonal*1.08;
+  const ytdClosed=inYear.filter(c=>c.fecha.getMonth()+1<month).reduce((s,c)=>s+c.montoSinIGV,0);
+  const ytdProjected=ytdClosed+projSeasonal;
+  const histMonthAvg=(m)=>{ const vals=[...new Set(rows.map(c=>c.fecha.getFullYear()))].filter(y=>y<year).map(y=>rows.filter(c=>c.fecha.getFullYear()===y&&c.fecha.getMonth()+1===m).reduce((s,c)=>s+c.montoSinIGV,0)).filter(v=>v>0); return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:projSeasonal; };
+  let rem=0; for(let m=month+1;m<=12;m++)rem+=histMonthAvg(m);
+  const annualProj=ytdProjected+rem;
+  const metaMonth=this.proyMetaMonth(year,month,mode);
+  const metaYear=this.proyMetaYear(year,mode);
+  const gapMonth=metaMonth?metaMonth-projSeasonal:null;
+  const gapYear=metaYear?metaYear-annualProj:null;
+  const remainingDays=Math.max(0,daysInMonth-elapsed);
+  const neededDaily=metaMonth?Math.max(0,(metaMonth-monthActual)/(remainingDays||1)):null;
+  return {rows,inYear,monthRows,year,month,mode,daysInMonth,elapsed,remainingDays,monthActual,monthActualCon,monthOrders,runRate,projBase,projSeasonal,projConserv,projAggr,prevSame,histAvg,ytdProjected,annualProj,metaMonth,metaYear,gapMonth,gapYear,neededDaily};
+};
+App.proyGroupRows=function(calc,field,label){
+  const rows=calc.rows; const y=calc.year,m=calc.month;
+  const current=rows.filter(c=>c.fecha.getFullYear()===y&&c.fecha.getMonth()+1===m);
+  const prev=rows.filter(c=>c.fecha.getFullYear()===y-1&&c.fecha.getMonth()+1===m);
+  const map={};
+  const keyOf=c=>field==='centro'?this.rowCenterKey(c):(c[field]||'Sin dato');
+  current.forEach(c=>{ const k=keyOf(c); const o=map[k]||(map[k]={grupo:k,actual:0,ordenes:0,prev:0,proj:0,share:0,gapRef:0,accion:''}); o.actual+=c.montoSinIGV; o.ordenes++; });
+  prev.forEach(c=>{ const k=keyOf(c); const o=map[k]||(map[k]={grupo:k,actual:0,ordenes:0,prev:0,proj:0,share:0,gapRef:0,accion:''}); o.prev+=c.montoSinIGV; });
+  const totalActual=Object.values(map).reduce((s,o)=>s+o.actual,0)||1;
+  Object.values(map).forEach(o=>{ o.proj=calc.elapsed>=calc.daysInMonth?o.actual:(o.actual/calc.elapsed*calc.daysInMonth); o.share=o.actual/totalActual*100; o.varPrev=o.prev?((o.proj/o.prev-1)*100):null; o.gapRef=o.prev?o.proj-o.prev:0; o.accion=this.proyAction(o,label); });
+  return Object.values(map).sort((a,b)=>b.proj-a.proj);
+};
+App.proyAction=function(o,label){
+  const g=String(o.grupo||'').toUpperCase();
+  if(o.varPrev!=null && o.varPrev<-15){
+    if(g.includes('WEB'))return 'Activar campaña web de conversión: bundle, retargeting y recuperación de carrito.';
+    if(g.includes('WHATSAPP')||g.includes('INSTAGRAM')||g.includes('MESSENGER')||g.includes('TIKTOK'))return 'Refuerzo de mensajes: guion de cierre, oferta limitada y seguimiento de leads sin respuesta.';
+    if(g.includes('MASTERCLASS'))return 'Campaña de cupos: urgencia, prueba social y remarketing a interesadas.';
+    return 'Campaña de recuperación: promoción táctica, base recurrente y productos ancla.';
+  }
+  if(o.varPrev!=null && o.varPrev>20)return 'Escalar lo que funciona: aumentar presupuesto/control de stock y replicar oferta.';
+  if(o.share<3)return 'Bajo peso: probar activación puntual o mantener sin sobreinvertir.';
+  return 'Mantener seguimiento: optimizar ticket con packs, cross-sell y recompra.';
+};
+App.proyOpportunities=function(calc){
+  const byCan=this.proyGroupRows(calc,'_canal','canal');
+  const bySede=this.proyGroupRows(calc,'_sede','sede');
+  const cand=[...byCan.slice(0,10),...bySede.slice(0,10)].filter(o=>o.proj>0);
+  cand.sort((a,b)=>{
+    const sa=(a.varPrev!=null&&a.varPrev<0?Math.abs(a.varPrev):0)*(a.proj||0);
+    const sb=(b.varPrev!=null&&b.varPrev<0?Math.abs(b.varPrev):0)*(b.proj||0);
+    return sb-sa;
+  });
+  return cand.slice(0,6);
+};
+App.proyControls=function(y,m,mode){
+  const years=this.proyYears();
+  return `<div class="proy-controls">
+    <div class="fg"><label>Año evaluado</label><select onchange="App._proyYear=+this.value;App.render('proyeccion')">${years.map(x=>`<option value="${x}" ${x===y?'selected':''}>${x}</option>`).join('')}</select></div>
+    <div class="fg"><label>Mes evaluado</label><select onchange="App._proyMonth=+this.value;App.render('proyeccion')">${MESES.map((x,i)=>`<option value="${i+1}" ${i+1===m?'selected':''}>${x}</option>`).join('')}</select></div>
+    <div class="fg"><label>Segmento</label><select onchange="App._proyMode=this.value;App.render('proyeccion')"><option value="" ${!mode?'selected':''}>Todos</option><option value="Digital" ${mode==='Digital'?'selected':''}>Solo digitales</option><option value="Presencial" ${mode==='Presencial'?'selected':''}>Solo físicos</option><option value="Otros" ${mode==='Otros'?'selected':''}>Otros</option></select></div>
+    <div class="fg"><label>Base de cálculo</label><span class="pill gray">Ventas generales ERP</span></div>
+  </div>`;
+};
+App.proyMonthMatrix=function(calc){
+  const rows=calc.rows; const year=calc.year; const months=[1,2,3,4,5,6,7,8,9,10,11,12];
+  const vals=months.map(m=>rows.filter(c=>c.fecha.getFullYear()===year&&c.fecha.getMonth()+1===m).reduce((s,c)=>s+c.montoSinIGV,0));
+  const max=Math.max(...vals,calc.projSeasonal,1);
+  const cells=months.map((m,i)=>{ const actual=vals[i]; const proj=m===calc.month?calc.projSeasonal:actual; const meta=this.proyMetaMonth(year,m,calc.mode); const pct=meta?proj/meta*100:null; return `<td><div class="proy-cell-main">${fmt.money(proj,0)}</div><div class="proy-cell-sub">${m===calc.month?'proyectado':'real'}${meta?' · '+fmt.pct(pct,0):''}</div><div class="proy-bar"><i style="width:${Math.min(100,proj/max*100)}%;background:${pct==null?'var(--rose)':pct>=100?'var(--ok)':pct>=85?'var(--warn)':'var(--bad)'}"></i></div></td>`; }).join('');
+  return `<div class="proy-matrix"><table><thead><tr><th>Año</th>${MESES.map(x=>`<th>${x.slice(0,3)}</th>`).join('')}</tr></thead><tbody><tr><td>${year}</td>${cells}</tr></tbody></table></div>`;
+};
+App.tab_proyeccion=function(){
+  const def=this.proyDefaultPeriod(); const y=this._proyYear||def.y; const m=this._proyMonth||def.m; const mode=this._proyMode||''; const calc=this.proyCalc(y,m,mode);
+  if(!calc.rows.length)return this.filterBar()+this.proyControls(y,m,mode)+`<div class="card"><div class="empty"><div class="e-t">Sin ventas para proyectar</div><div>Carga Ventas generales o ajusta filtros de canal, centro, sede, tipo de cliente o vendedora.</div></div></div>`;
+  const cumpl=calc.metaMonth?calc.projSeasonal/calc.metaMonth*100:null; const cumplY=calc.metaYear?calc.annualProj/calc.metaYear*100:null; const gap=calc.gapMonth;
+  const kpis=`<div class="grid kpis" style="margin-top:14px">
+    ${this.kpiCard({lbl:'Venta real MTD sin IGV',val:fmt.money(calc.monthActual,2),sub:`${calc.elapsed} de ${calc.daysInMonth} días con data`,src:'erp'})}
+    ${this.kpiCard({lbl:'Proyección mensual base',val:fmt.money(calc.projSeasonal,2),sub:calc.metaMonth?`meta ${fmt.money(calc.metaMonth,2)}`:'sin meta cargada',src:'der',sem:cumpl==null?'gray':(cumpl>=100?'ok':cumpl>=85?'warn':'bad')})}
+    ${this.kpiCard({lbl:'Brecha vs meta mensual',val:gap==null?'N/D':fmt.money(gap,2),sub:gap==null?'sin meta':(gap>0?'falta por cubrir':'sobre meta proyectada'),src:'der',sem:gap==null?'gray':(gap<=0?'ok':gap/calc.metaMonth<=.15?'warn':'bad')})}
+    ${this.kpiCard({lbl:'Venta diaria necesaria',val:calc.neededDaily==null?'N/D':fmt.money(calc.neededDaily,2),sub:`${calc.remainingDays} días restantes`,src:'der'})}
+    ${this.kpiCard({lbl:'Proyección anual',val:fmt.money(calc.annualProj,2),sub:calc.metaYear?`meta anual ${fmt.money(calc.metaYear,2)}`:'sin meta anual',src:'der',sem:cumplY==null?'gray':(cumplY>=100?'ok':cumplY>=85?'warn':'bad')})}
+    ${this.kpiCard({lbl:'Cumplimiento anual proyectado',val:cumplY==null?'N/D':fmt.pct(cumplY,1),sub:`corte ${MESES[m-1]} ${y}`,src:'der',sem:cumplY==null?'gray':(cumplY>=100?'ok':cumplY>=85?'warn':'bad')})}
+  </div>`;
+  const hero=`<div class="proy-hero"><div><h2>Forecast mensual y anual de ventas</h2><p>La proyección usa <b>Ventas generales ERP</b> como fuente financiera, aplica los filtros activos y no suma Detalle ni PrestaShop encima. El resultado sirve para decidir campañas, promociones y presión comercial por sede/canal.</p><div class="big">${fmt.money(calc.projSeasonal,0)}</div><div class="sub">Proyección base para ${MESES[m-1]} ${y} · ${mode||'todos los segmentos'}</div></div><div class="proy-mini"><div class="box"><div class="l">Conservador</div><div class="v">${fmt.money(calc.projConserv,0)}</div><div class="s">-8% sobre base</div></div><div class="box"><div class="l">Base</div><div class="v">${fmt.money(calc.projSeasonal,0)}</div><div class="s">run-rate + estacionalidad</div></div><div class="box"><div class="l">Agresivo</div><div class="v">${fmt.money(calc.projAggr,0)}</div><div class="s">+8% sobre base</div></div></div></div>`;
+  const bySede=this.proyGroupRows(calc,'_sede','sede').slice(0,20); const byCan=this.proyGroupRows(calc,'_canal','canal').slice(0,20); const opps=this.proyOpportunities(calc);
+  const gcols=[{k:'grupo',label:'Grupo'},{k:'actual',label:'Real MTD',num:true,fmt:v=>fmt.money(v,2)},{k:'proj',label:'Proyección mes',num:true,fmt:v=>fmt.money(v,2)},{k:'prev',label:'Año anterior',num:true,fmt:v=>v?fmt.money(v,2):'—'},{k:'varPrev',label:'Var. vs AA',num:true,html:r=>r.varPrev==null?'—':`<span class="pill ${r.varPrev>=0?'ok':'bad'}">${fmt.pct(r.varPrev,1)}</span>`,csv:r=>r.varPrev},{k:'ordenes',label:'Órdenes MTD',num:true,fmt:v=>fmt.int(v)},{k:'accion',label:'Acción sugerida'}];
+  const oppHtml=opps.length?`<div class="proy-opps">${opps.map(o=>`<div class="proy-opp"><div><h4>${esc(o.grupo)}</h4><p>${esc(o.accion)}</p><span class="tag2">${o.varPrev==null?'sin base anterior':(o.varPrev<0?'recuperación':'escala')}</span></div><div class="impact">${o.varPrev==null?'N/D':fmt.pct(o.varPrev,1)}</div></div>`).join('')}</div>`:`<div class="empty" style="padding:26px"><div class="e-t">Sin oportunidades críticas</div><div>No se detectan caídas relevantes en los filtros actuales.</div></div>`;
+  return this.filterBar()+this.proyControls(y,m,mode)+`<div class="note"><b>Lectura:</b> esto no reemplaza la decisión humana; automatiza el diagnóstico numérico. La decisión final debe validar stock, margen, calendario comercial y capacidad de atención antes de lanzar campañas.</div>${hero}${kpis}<div class="proy-grid"><div class="card proy-card proy-span-8"><h3>Proyección mensual por mes</h3><div class="ch-sub">Mes evaluado muestra proyección; meses cerrados muestran venta real. Color según avance contra meta mensual si existe.</div>${this.proyMonthMatrix(calc)}</div><div class="card proy-card proy-span-4"><h3>Oportunidades automáticas</h3><div class="ch-sub">Alertas priorizadas por caída vs año anterior y peso comercial.</div>${oppHtml}</div><div class="card proy-card proy-span-6"><h3>Proyección por sede</h3><div class="ch-sub">Venta real MTD y forecast mensual por sede de serie.</div>${this.table('tbl_proy_sede',gcols,bySede,{sort:'proj',per:12})}</div><div class="card proy-card proy-span-6"><h3>Proyección por canal</h3><div class="ch-sub">Permite decidir si conviene campaña web, mensajes, retail o activación física.</div>${this.table('tbl_proy_canal',gcols,byCan,{sort:'proj',per:12})}</div></div>`;
+};
+App.after_proyeccion=function(){ };
+
 App.tab_digital=function(){ return this.canalTab("Digital"); };
 App.tab_presencial=function(){ return this.canalTab("Presencial"); };
 App.afterCanal=function(ambito,cardId){
@@ -2178,7 +2544,7 @@ App.tab_centros=function(){
     ${this.kpiCard({lbl:"WEB inferido",val:fmt.int(inf),sub:"centros vacíos reclasificados",src:"der",sem:inf?"warn":"ok"})}
     ${this.kpiCard({lbl:"Venta total",val:fmt.money(rows.reduce((s,r)=>s+r.venta,0)),src:"erp"})}
   </div>
-  <div class="note">El valor original del ERP no se borra. Para análisis se usa <b>Centro operativo</b>: si el centro viene vacío pero el pedido tiene evidencia ecommerce, vendedor <code class="kf">LB Venta Web</code>, serie 001 o match con PrestaShop, se agrupa como <b>WEB</b>. Así los años anteriores no quedan subestimados en digital.</div>
+  <div class="note">El valor original del ERP no se borra. Para análisis se usa <b>Centro operativo normalizado</b>: WhatsApp, Instagram, Jockey, Dasso, Retail, Feria, Masterclass, Rappi y Web se agrupan con reglas robustas. <b>WEB inferido</b> solo se aplica cuando el centro ERP está vacío y existe evidencia ecommerce; no arrastra centros escritos como Lourdes, Magali, Magdalena u otros nombres hacia WEB sin regla explícita.</div>
   <div class="card" style="margin-top:8px">${this.table("tbl_centros",cols,rows,{sort:"venta"})}</div>`;
 };
 
@@ -2205,36 +2571,84 @@ App.after_vendedoras=function(){
     options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{ticks:{callback:v=>"S/ "+(v/1000).toFixed(0)+"k"}}},maintainAspectRatio:false}});
 };
 
+
 /* ---------- MASTERCLASS ---------- */
+App.mcClientId=function(d){
+  const c=this.model&&this.model.compByKey?this.model.compByKey[d.docKey]:null;
+  return (c&&(nh(c.ruc)||nh(c.correo)||nh(c.telf)||nh(c.cliente))) || nh(d.correo)||nh(d.telf)||nh(d.cliente)||"";
+};
+App.mcClientName=function(d){
+  const c=this.model&&this.model.compByKey?this.model.compByKey[d.docKey]:null;
+  return normTxt((c&&c.cliente)||d.cliente)||"Sin cliente";
+};
+App.mcDateScopedDetalle=function(){
+  const f=this.filters||{}; const ay=this.selArr('y').map(Number), am=this.selArr('m').map(Number);
+  return (this.detalle||[]).filter(d=>{
+    if(d.anulado&&!f.incAnulados)return false;
+    if(d.esNC&&f.excNC)return false;
+    if(ay.length&&(!d.fecha||!ay.includes(d.fecha.getFullYear())))return false;
+    if(am.length&&(!d.fecha||!am.includes(d.fecha.getMonth()+1)))return false;
+    if(f.d1&&d.fecha&&d.fecha<f.d1)return false;
+    if(f.d2&&d.fecha&&d.fecha>f.d2)return false;
+    return true;
+  });
+};
+App.masterclassDeepDive=function(mcDet){
+  const buyerIds=new Set(mcDet.map(d=>this.mcClientId(d)).filter(Boolean));
+  const allDate=this.mcDateScopedDetalle();
+  const prodLines=allDate.filter(d=>buyerIds.has(this.mcClientId(d))&&!d._mc&&!this.isExcludedProduct(d.nombre,d.categoria));
+  const byProd={};
+  prodLines.forEach(d=>{ const k=d._prod||this.prodName(d.nombre,d.categoria,d.codigoInt)||d.nombre||d.codigoInt; const x=byProd[k]||(byProd[k]={producto:k,compradores:new Set(),pedidos:new Set(),unidades:0,sinIGV:0,conIGV:0});
+    x.compradores.add(this.mcClientId(d)); x.pedidos.add(d.docKey); x.unidades+=d.cantidad||0; x.sinIGV+=d.valorVtaTot||0; x.conIGV+=d.precioVtaTot||0;
+  });
+  const productRows=Object.values(byProd).map(x=>({...x,compradoresN:x.compradores.size,pedidosN:x.pedidos.size,ticket:x.pedidos.size?x.sinIGV/x.pedidos.size:0})).sort((a,b)=>b.sinIGV-a.sinIGV);
+  const byClient={};
+  mcDet.forEach(d=>{ const id=this.mcClientId(d); if(!id)return; const x=byClient[id]||(byClient[id]={id,cliente:this.mcClientName(d),docsMC:new Set(),cupos:0,ventaMC:0,prodDocs:new Set(),ventaProd:0,unidadesProd:0,primera:null,ultima:null});
+    x.docsMC.add(d.docKey); x.cupos+=d.cantidad||0; x.ventaMC+=d.valorVtaTot||0; if(d.fecha){ if(!x.primera||d.fecha<x.primera)x.primera=d.fecha; if(!x.ultima||d.fecha>x.ultima)x.ultima=d.fecha; }
+  });
+  prodLines.forEach(d=>{ const id=this.mcClientId(d); const x=byClient[id]; if(!x)return; x.prodDocs.add(d.docKey); x.ventaProd+=d.valorVtaTot||0; x.unidadesProd+=d.cantidad||0; });
+  const clientRows=Object.values(byClient).map(x=>({...x,eventosN:x.docsMC.size,pedidosProd:x.prodDocs.size,ticketProd:x.prodDocs.size?x.ventaProd/x.prodDocs.size:0,primeraF:fmt.date(x.primera),ultimaF:fmt.date(x.ultima)})).sort((a,b)=>(b.eventosN-a.eventosN)||(b.ventaMC-a.ventaMC));
+  return {buyerIds,prodLines,productRows,clientRows};
+};
 App.tab_masterclass=function(){
   let det=this.filteredDetalle().filter(d=>!d.anulado&&d._mc);
-  const byYm={}; det.forEach(d=>{ const x=byYm[d.ym]||(byYm[d.ym]={ym:d.ym,cupos:0,sin:0,con:0,buyers:new Set()});
-    x.cupos+=d.cantidad; x.sin+=d.valorVtaTot; x.con+=d.precioVtaTot; const id=this.clienteIdDet(d); if(id)x.buyers.add(id); });
+  const byYm={}; det.forEach(d=>{ const x=byYm[d.ym]||(byYm[d.ym]={ym:d.ym,cupos:0,sin:0,con:0,buyers:new Set(),docs:new Set()});
+    x.cupos+=d.cantidad; x.sin+=d.valorVtaTot; x.con+=d.precioVtaTot; x.docs.add(d.docKey); const id=this.mcClientId(d); if(id)x.buyers.add(id); });
   const yms=Object.keys(byYm).sort();
   const rows=yms.map(y=>{ const x=byYm[y]; const meta=this.metaFor("CUPO MASTERCLASS","MASTERCLASS",y.slice(0,4),+y.slice(5,7));
-    return {ym:y,cupos:x.cupos,sin:x.sin,con:x.con,buyers:x.buyers.size,ticket:x.buyers.size?x.sin/x.buyers.size:0,
-      cuposPorPedido:x.buyers.size?x.cupos/x.buyers.size:0,meta,cumpl:meta?x.sin/meta*100:null}; });
-  const totSin=det.reduce((s,d)=>s+d.valorVtaTot,0), totCupos=det.reduce((s,d)=>s+d.cantidad,0);
-  // ranking masterclass products
-  const byProd={}; det.forEach(d=>{ const k=d.nombre||d.codigoInt; byProd[k]=(byProd[k]||0)+d.valorVtaTot; });
-  const prodRows=Object.entries(byProd).map(([nombre,venta])=>({nombre,venta})).sort((a,b)=>b.venta-a.venta);
-  const cols=[{k:"ym",label:"Mes"},{k:"cupos",label:"Cupos",num:true,fmt:v=>fmt.int(v)},
+    return {ym:y,pedidos:x.docs.size,cupos:x.cupos,sin:x.sin,con:x.con,buyers:x.buyers.size,ticket:x.buyers.size?x.sin/x.buyers.size:0,
+      cuposPorPedido:x.docs.size?x.cupos/x.docs.size:0,meta,cumpl:meta?x.sin/meta*100:null}; });
+  const totSin=det.reduce((s,d)=>s+d.valorVtaTot,0), totCupos=det.reduce((s,d)=>s+d.cantidad,0), totDocs=new Set(det.map(d=>d.docKey)).size;
+  const dd=this.masterclassDeepDive(det);
+  const compradores=dd.buyerIds.size;
+  const prodSin=dd.prodLines.reduce((s,d)=>s+(d.valorVtaTot||0),0);
+  const prodPedidos=new Set(dd.prodLines.map(d=>d.docKey)).size;
+  const recurrentesEvento=dd.clientRows.filter(r=>r.eventosN>=2).length;
+  const byProd={}; det.forEach(d=>{ const k=d.nombre||d.codigoInt; const x=byProd[k]||(byProd[k]={nombre:k,venta:0,cupos:0,pedidos:new Set()}); x.venta+=d.valorVtaTot; x.cupos+=d.cantidad; x.pedidos.add(d.docKey); });
+  const prodRows=Object.values(byProd).map(x=>({...x,pedidosN:x.pedidos.size})).sort((a,b)=>b.venta-a.venta);
+  const cols=[{k:"ym",label:"Mes"},{k:"pedidos",label:"Pedidos",num:true,fmt:v=>fmt.int(v)},{k:"cupos",label:"Cupos",num:true,fmt:v=>fmt.int(v)},
     {k:"sin",label:"Venta sin IGV",num:true,fmt:v=>fmt.money(v)},{k:"con",label:"Venta con IGV",num:true,fmt:v=>fmt.money(v)},
-    {k:"buyers",label:"Compradores",num:true,fmt:v=>fmt.int(v)},{k:"ticket",label:"Ticket",num:true,fmt:v=>fmt.money(v)},
+    {k:"buyers",label:"Compradores",num:true,fmt:v=>fmt.int(v)},{k:"ticket",label:"Ticket comprador",num:true,fmt:v=>fmt.money(v)},
     {k:"cuposPorPedido",label:"Cupos/pedido",num:true,fmt:v=>fmt.dec(v,1)},
     {k:"meta",label:"Meta",num:true,fmt:v=>v?fmt.money(v):"—"},
     {k:"cumpl",label:"Cumpl.",num:true,html:r=>r.cumpl==null?"—":`<span class="pill ${this.semaforo('cumplimiento',r.cumpl).cls}">${fmt.pct(r.cumpl)}</span>`}];
+  const prodClientCols=[{k:'producto',label:'Producto comprado'},{k:'compradoresN',label:'Clientes MC',num:true,fmt:v=>fmt.int(v)},{k:'pedidosN',label:'Pedidos',num:true,fmt:v=>fmt.int(v)},{k:'unidades',label:'Unidades',num:true,fmt:v=>fmt.int(v)},{k:'sinIGV',label:'Venta sin IGV',num:true,fmt:v=>fmt.money(v)},{k:'ticket',label:'Ticket pedido',num:true,fmt:v=>fmt.money(v)}];
+  const clientCols=[{k:'cliente',label:'Cliente'},{k:'eventosN',label:'Compras MC',num:true,fmt:v=>fmt.int(v)},{k:'cupos',label:'Cupos',num:true,fmt:v=>fmt.int(v)},{k:'ventaMC',label:'Venta MC',num:true,fmt:v=>fmt.money(v)},{k:'pedidosProd',label:'Pedidos productos',num:true,fmt:v=>fmt.int(v)},{k:'ventaProd',label:'Venta productos',num:true,fmt:v=>fmt.money(v)},{k:'ultimaF',label:'Última MC'}];
   return this.filterBar()+`
-  <div class="note">Masterclass es una <b>línea transversal</b> (categoría MASTER / SKU MASTC), no un centro de ingresos. Se mide como herramienta de adquisición y comunidad: cupos y monto se reportan por separado y se excluyen del ranking cosmético.</div>
+  <div class="note">Masterclass es una <b>línea transversal</b> (categoría MASTER / SKU MASTC). Esta vista no suma PrestaShop como venta: mide cupos desde <b>Detalle ERP</b> y cruza clientes por documento/correo/teléfono/nombre para ver compra de productos y recurrencia del evento.</div>
   <div class="grid kpis">
-    ${this.kpiCard({lbl:"Venta Masterclass sin IGV",val:fmt.money(totSin),src:"erp"})}
-    ${this.kpiCard({lbl:"Cupos vendidos",val:fmt.int(totCupos),src:"erp"})}
-    ${this.kpiCard({lbl:"Compradores",val:fmt.int(new Set(det.map(d=>this.clienteIdDet(d)).filter(Boolean)).size),src:"der"})}
-    ${this.kpiCard({lbl:"Ticket promedio",val:fmt.money(totSin/Math.max(1,new Set(det.map(d=>this.clienteIdDet(d)).filter(Boolean)).size)),src:"der"})}
+    ${this.kpiCard({lbl:"Venta Masterclass sin IGV",val:fmt.money(totSin),sub:fmt.int(totDocs)+" pedidos",src:"erp"})}
+    ${this.kpiCard({lbl:"Cupos vendidos",val:fmt.int(totCupos),sub:fmt.int(compradores)+" compradores",src:"erp"})}
+    ${this.kpiCard({lbl:"Clientes recurrentes evento",val:fmt.int(recurrentesEvento),sub:"2 o más compras Masterclass",src:"der"})}
+    ${this.kpiCard({lbl:"Venta productos de clientes MC",val:fmt.money(prodSin),sub:fmt.int(prodPedidos)+" pedidos de productos",src:"der"})}
   </div>
   <div class="two" style="margin-top:16px">
     <div class="card chart-card"><h3>Cupos y venta por mes</h3><div class="chwrap sm"><canvas id="ch_mc"></canvas></div></div>
-    <div class="card"><h3 style="margin-bottom:10px">Ranking Masterclass</h3>${this.table("tbl_mc_prod",[{k:"nombre",label:"Producto"},{k:"venta",label:"Venta sin IGV",num:true,fmt:v=>fmt.money(v)}],prodRows,{sort:"venta",per:10,search:false})}</div>
+    <div class="card"><h3 style="margin-bottom:10px">Cupos / tickets Masterclass</h3>${this.table("tbl_mc_prod",[{k:"nombre",label:"Concepto"},{k:"pedidosN",label:"Pedidos",num:true,fmt:v=>fmt.int(v)},{k:"cupos",label:"Cupos",num:true,fmt:v=>fmt.int(v)},{k:"venta",label:"Venta sin IGV",num:true,fmt:v=>fmt.money(v)}],prodRows,{sort:"venta",per:10,search:false})}</div>
+  </div>
+  <div class="two" style="margin-top:16px">
+    <div class="card"><h3 style="margin-bottom:10px">Productos comprados por clientes Masterclass</h3><div class="ch-sub">Mide qué productos compran los asistentes/compradores de Masterclass dentro del periodo filtrado. No duplica cupos.</div>${this.table("tbl_mc_client_prod",prodClientCols,dd.productRows,{sort:"sinIGV",per:12})}</div>
+    <div class="card"><h3 style="margin-bottom:10px">Clientes más recurrentes al evento</h3><div class="ch-sub">Clientes con más compras/pedidos Masterclass y su venta adicional en productos.</div>${this.table("tbl_mc_recurrentes",clientCols,dd.clientRows,{sort:"eventosN",per:12})}</div>
   </div>
   <div class="card" style="margin-top:16px"><h3 style="margin-bottom:10px">Detalle mensual y cumplimiento</h3>${this.table("tbl_mc",cols,rows,{sort:"ym",dir:1,search:false})}</div>`;
 };
@@ -3090,7 +3504,7 @@ App.enviosAgg=function(rows,by){
   return Object.values(m).map(o=>({...o,docsN:o.docs.size,ticket:o.cantidad?o.conIGV/o.cantidad:0})).sort((a,b)=>b.conIGV-a.conIGV);
 };
 
-App._envioColors={"Envío provincia":"#c25b7e","Envío express":"#5e3650","Envío regular Lima":"#e0a4b8","Devolución / reenvío":"#9d3f60","Otros envíos":"#caa27e"};
+App._envioColors={"Envío provincia":"#b9828e","Envío express":"#785760","Envío regular Lima":"#d7a1ae","Devolución / reenvío":"#a96f7d","Otros envíos":"#c9aa92"};
 App._envioShort={"Envío provincia":"P","Envío express":"E","Envío regular Lima":"L","Devolución / reenvío":"D","Otros envíos":"O"};
 App.enviosMonthMatrix=function(rows){
   const focus=["Envío provincia","Envío express","Envío regular Lima"];
@@ -3506,7 +3920,41 @@ App.cargaStoreByTipo=function(tipo){
 App.cargaStateByStore=function(store){
   return {rawComprobantesERP:"comprobantes",rawDetalleERP:"detalle",rawPrestaShop:"presta",rawMetaAds:"metaAds",rawMetas:"metas",rawSkuOverrides:"skuOverrides",rawPublicidadManual:"publicidadManual",rawKpiConfig:"kpiConfig",rawCanalMapping:"canalMap",rawClientesOverrides:"clientesOverrides",rawConciliacionesManuales:"conciliacionesManuales"}[store]||null;
 };
-App.cargaLabel=function(c){ return SRC_LABEL[c.tipo]||c.tipo||"Fuente"; };
+App.tipoByStore=function(store){
+  return {rawComprobantesERP:"comprobante",rawDetalleERP:"detalle",rawPrestaShop:"prestashop",rawMetaAds:"metaads",rawMetas:"metas",rawSkuOverrides:"sku",rawPublicidadManual:"manual",rawKpiConfig:"kpi",rawCanalMapping:"canales",rawClientesOverrides:"clientes",rawConciliacionesManuales:"conciliacion"}[store]||"";
+};
+App.normalizeCargaObj=function(c){
+  c=c||{};
+  const store=c.store||this.cargaStoreByTipo(c.tipo||c.type||c.source)||"";
+  const tipo=c.tipo||c.type||this.tipoByStore(store)||c.source||"";
+  let fecha=c.fecha!=null?c.fecha:(c.ts!=null?c.ts:(c.date!=null?c.date:null));
+  if(typeof fecha==="string"&&fecha){ const d=Date.parse(fecha); fecha=isNaN(d)?fecha:d; }
+  const filas=c.filas!=null?c.filas:(c.rows!=null?c.rows:0);
+  const recordKeys=Array.isArray(c.recordKeys)?c.recordKeys:(Array.isArray(c.keys)?c.keys:[]);
+  const columnas=Array.isArray(c.columnas)?c.columnas:(Array.isArray(c.columns)?c.columns:(Array.isArray(c.headerRows)?c.headerRows:[]));
+  return {
+    ...c,
+    _k:c._k||uid(),
+    fecha:fecha||Date.now(),
+    archivo:c.archivo||c.fileName||c.nombre||c.name||"Sin nombre",
+    tipo,
+    store,
+    hash:c.hash||c.huella||"",
+    nuevos:+(c.nuevos!=null?c.nuevos:(c.newRows!=null?c.newRows:0))||0,
+    actualizados:+(c.actualizados!=null?c.actualizados:(c.updated!=null?c.updated:0))||0,
+    ignorados:+(c.ignorados!=null?c.ignorados:(c.ignored!=null?c.ignored:0))||0,
+    errores:+(c.errores!=null?c.errores:(c.errors!=null?c.errors:0))||0,
+    filas:+filas||0,
+    columnas,
+    recordKeys,
+    esquema:c.esquema||c.schema||DB_VER
+  };
+};
+App.normalizeAuditObj=function(a){
+  a=a||{};
+  return {...a,_k:a._k||uid(),t:a.t!=null?a.t:(a.ts!=null?a.ts:Date.now()),ev:a.ev||a.action||"evento",detalle:a.detalle||a.detail||""};
+};
+App.cargaLabel=function(c){ return SRC_LABEL[(c&&c.tipo)||""]||((c&&c.tipo)||"Fuente"); };
 App.cargaDeleteMode=function(c){ return (c.recordKeys&&c.recordKeys.length)?"exact":"source"; };
 App.toggleCargaSel=function(k,checked){ this._cargaSel=this._cargaSel||new Set(); if(checked)this._cargaSel.add(k); else this._cargaSel.delete(k); this.render("cargas"); };
 App.toggleAllCargas=function(checked){ this._cargaSel=this._cargaSel||new Set(); if(checked)this.cargas.forEach(c=>this._cargaSel.add(c._k)); else this._cargaSel.clear(); this.render("cargas"); };
@@ -3600,7 +4048,7 @@ App.tab_cargas=function(){
   const selectedCount=this._cargaSel.size;
   const cols=[
     {k:"seleccionado",label:`<label class="load-sel"><input type="checkbox" ${allSelected?'checked':''} onchange="App.toggleAllCargas(this.checked)"> Seleccionar</label>`,sort:false,html:r=>`<input type="checkbox" ${r.seleccionado?'checked':''} onchange="App.toggleCargaSel('${r._k}',this.checked)" style="accent-color:var(--rose)">`,csv:r=>r.seleccionado?"Seleccionado":""},
-    {k:"fechaNum",label:"Fecha",fmt:v=>new Date(v).toLocaleString("es-PE"),csv:r=>new Date(r.fecha).toLocaleString("es-PE")},
+    {k:"fechaNum",label:"Fecha",fmt:v=>{ const d=new Date(v); return isNaN(d)?"—":d.toLocaleString("es-PE"); },csv:r=>{ const d=new Date(r.fecha); return isNaN(d)?"—":d.toLocaleString("es-PE"); }},
     {k:"archivo",label:"Archivo",html:r=>`<b>${esc(r.archivo||"Sin nombre")}</b><div class="muted" style="font-size:11px">${r.store||this.cargaStoreByTipo(r.tipo)||"sin store"}</div>`},
     {k:"fuenteLabel",label:"Fuente"},
     {k:"filas",label:"Filas",num:true,fmt:v=>fmt.int(v)},
@@ -3630,7 +4078,7 @@ App.tab_cargas=function(){
       <h3>Respaldo total (JSON)</h3>
       <div class="ch-sub">Exporta todos los datos crudos + configuración. Sirve para mover el tablero entre equipos sin recargar Excel.</div>
       <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn primary" onclick="App.exportBackup()">Descargar respaldo</button>
+        <button class="btn primary" onclick="App.exportBackup()"></button>
         <label class="btn" style="cursor:pointer">Restaurar respaldo<input type="file" accept="application/json,.json" class="hidden" onchange="App.restoreBackupPicker(this.files[0])"></label>
       </div>
       <div class="note warn" style="margin-top:12px">Restaurar <b>reemplaza por completo</b> los datos actuales en este navegador. Descarga un respaldo antes si tienes dudas.</div>
@@ -3644,6 +4092,7 @@ App.tab_cargas=function(){
         <button class="btn" onclick="App.exportBackup()">Exportar JSON técnico</button>
       </div>
       <div class="note" style="margin-top:12px">El HTML portable <b>nunca</b> incluye el token de GitHub. Para GitHub usa <b>Exportar index.html liviano para GitHub</b> y sube ese archivo generado, no el archivo base del tablero. Cualquiera que abra ese archivo podrá ver los datos incrustados: compártelo solo con quien deba revisarlos.</div>
+      <div class="note ok" style="margin-top:10px"><b>Corrección v29:</b> el exportador liviano conserva historial de cargas, encabezados, llaves por fila, centros operativos inferidos al reconstruir y series desde comprobantes/docKey. Esto evita cargas en blanco, centros mal distribuidos y sedes por serie incorrectas en GitHub Pages.</div>
     </div>
   </div>
 
@@ -3655,7 +4104,8 @@ App.tab_cargas=function(){
       <button class="btn" onclick="App.clearCargaSelection()" ${selectedCount?"":"disabled"}>Limpiar selección</button>
       <span class="muted"><b>${fmt.int(selectedCount)}</b> seleccionado(s)</span>
       <span class="spacer"></span>
-      <button class="btn sm" onclick="App.exportBackup()">Descargar respaldo antes de borrar</button>
+      <button class="btn sm" onclick="App.cleanDuplicateRecords()">Limpiar duplicados exactos</button>
+      <button class="btn sm" onclick="App.exportBackup()"> antes de borrar</button>
     </div>
     ${this.table("tbl_cargas",cols,cargasRows,{sort:"fechaNum",dir:-1,per:20})}
     <div class="note" style="margin-top:12px"><b>Lectura del modo de borrado:</b> “Exacto” elimina solo las filas que pertenecen a esa carga. “Fuente completa” aparece en cargas antiguas que no guardaban llaves por fila; al borrarlas se limpia toda la fuente vinculada para evitar bases partidas o duplicadas.</div>
@@ -3668,7 +4118,15 @@ App.tab_cargas=function(){
     </div>
     <div class="note warn" style="margin-top:12px">Usa esta opción solo si quieres reiniciar por completo. Para corregir un archivo puntual, usa el historial de cargas de arriba.</div>
   </div>`;
+
 };
+App.cleanDuplicateRecords=async function(){
+  const removed=await this.persistDedupedCore();
+  this.rebuild(); this.updateMeta(); this.checkPersistence();
+  this.toast(removed?"Duplicados exactos eliminados: "+fmt.int(removed):"No se encontraron duplicados exactos","ok");
+  this.render(this.curTab||"cargas");
+};
+
 App.schemaCard=function(){
   const rows=this.schemaSources().map(src=>{
     const sample=src.rows[0]||{}; const cols=Object.keys(sample).filter(k=>!k.startsWith("_"));
@@ -3768,7 +4226,7 @@ App.importBackupObject=async function(obj,silent){
   // wipe relevant stores then repopulate
   for(const s of this.BACKUP_STORES){ await DB.clear(s); }
   const st=obj.stores||{};
-  const put=async(store,arr)=>{ for(const x of (arr||[])){ if(x._k==null)x._k=uid(); await DB.put(store,x._k,x); } };
+  const put=async(store,arr)=>{ let i=0; for(const x of (arr||[])){ if(!x._k)x._k=store+"_"+(i++)+"_"+uid(); await DB.put(store,x._k,x); } };
   await put("rawComprobantesERP",st.rawComprobantesERP);
   await put("rawDetalleERP",st.rawDetalleERP);
   await put("rawPrestaShop",st.rawPrestaShop);
@@ -3778,10 +4236,12 @@ App.importBackupObject=async function(obj,silent){
   await put("rawPublicidadManual",st.rawPublicidadManual);
   await put("rawClientesOverrides",st.rawClientesOverrides);
   await put("rawConciliacionesManuales",st.rawConciliacionesManuales);
-  await put("cargas",st.cargas);
-  await put("auditLog",st.auditLog);
-  if(obj.kpiConfig)await put("rawKpiConfig",obj.kpiConfig);
-  if(obj.canalMap)await put("rawCanalMapping",obj.canalMap);
+  const cargasNorm=(st.cargas||[]).map(c=>this.normalizeCargaObj?this.normalizeCargaObj(c):c);
+  const auditNorm=(st.auditLog||[]).map(a=>this.normalizeAuditObj?this.normalizeAuditObj(a):a);
+  await put("cargas",cargasNorm);
+  await put("auditLog",auditNorm);
+  if(obj.kpiConfig)await put("rawKpiConfig",this.normalizeKpiConfig?this.normalizeKpiConfig(obj.kpiConfig):obj.kpiConfig);
+  if(obj.canalMap)await put("rawCanalMapping",this.normalizeCanalMap?this.normalizeCanalMap(obj.canalMap):obj.canalMap);
   if(obj.config){ const cfg=Object.assign(JSON.parse(JSON.stringify(DEFAULT_CONFIG)),obj.config); await DB.put("config","main",cfg); }
   await this.loadAll(); this.rebuild(); if(!silent){ this.updateMeta(); this.checkPersistence(); }
 };
@@ -3814,8 +4274,8 @@ App.compactSchema={
   rawConciliacionesManuales:["_k","tipo","origen","destino","nota"],
   rawKpiConfig:["_k","idKPI","nombreKPI","ambito","unidad","direccion","limiteRojo","limiteAmarillo","limiteVerde","meta","activo"],
   rawCanalMapping:["_k","centroIngresoERP","ambitoComercial","canalNormalizado","activo","observacion"],
-  cargas:["_k","ts","fileName","source","type","rows","headerRows","sheet","keys","store"],
-  auditLog:["_k","ts","action","detail"]
+  cargas:["_k","fecha","archivo","tipo","store","hash","nuevos","actualizados","ignorados","errores","filas","columnas","recordKeys","esquema"],
+  auditLog:["_k","t","ev","detalle"]
 };
 App.compactRows=function(rows,fields){
   const dateFields=new Set(["fecha","ini","fin"]);
@@ -3837,14 +4297,14 @@ App.buildCompactBackupObject=function(){
   const cs=this.compactSchema;
   const stores={};
   Object.keys(cs).forEach(k=>{
-    if(k==="rawKpiConfig")stores[k]=this.compactRows(raw.kpiConfig||this.kpiConfig,cs[k]);
-    else if(k==="rawCanalMapping")stores[k]=this.compactRows(raw.canalMap||this.canalMap,cs[k]);
+    if(k==="rawKpiConfig")stores[k]=this.compactRows(this.normalizeKpiConfig?this.normalizeKpiConfig(raw.kpiConfig||this.kpiConfig):(raw.kpiConfig||this.kpiConfig),cs[k]);
+    else if(k==="rawCanalMapping")stores[k]=this.compactRows(this.normalizeCanalMap?this.normalizeCanalMap(raw.canalMap||this.canalMap):(raw.canalMap||this.canalMap),cs[k]);
     else stores[k]=this.compactRows(st[k]||[],cs[k]);
   });
-  return {meta:{...raw.meta,format:"compact-v1",generated:new Date().toISOString()},schema:cs,config:raw.config,stores};
+  return {meta:{...raw.meta,format:"compact-v2",generated:new Date().toISOString(),note:"GitHub seed conserva cargas, centros operativos, series y llaves de borrado"},schema:cs,config:raw.config,stores};
 };
 App.expandCompactBackupObject=function(obj){
-  if(!obj||!obj.meta||obj.meta.format!=="compact-v1")return obj;
+  if(!obj||!obj.meta||!(String(obj.meta.format||"").startsWith("compact-v")))return obj;
   const cs=obj.schema||this.compactSchema, st=obj.stores||{};
   const stores={};
   Object.keys(cs).forEach(k=>{ stores[k]=this.expandRows(st[k]||[],cs[k]); });
@@ -3892,7 +4352,7 @@ App.buildPortableHTML=async function(mode){
   doc.querySelectorAll("#overlay .modal").forEach(m=>m.innerHTML="");
   const seedScript=document.createElement("script");
   seedScript.setAttribute("data-seed","1");
-  seedScript.textContent="window.__SEED_B64__="+JSON.stringify(packed.b64)+";window.__SEED_FORCE__=true;window.__SEED_AT__="+JSON.stringify(new Date().toISOString())+";window.__SEED_COMPRESSED__="+JSON.stringify(!!packed.compressed)+";window.__SEED_FORMAT__="+JSON.stringify(useCompact?"compact-v1":"raw-v1")+";";
+  seedScript.textContent="window.__SEED_B64__="+JSON.stringify(packed.b64)+";window.__SEED_FORCE__=true;window.__SEED_AT__="+JSON.stringify(new Date().toISOString())+";window.__SEED_COMPRESSED__="+JSON.stringify(!!packed.compressed)+";window.__SEED_FORMAT__="+JSON.stringify(useCompact?"compact-v2":"raw-v1")+";";
   const head=doc.querySelector("head")||doc.firstElementChild;
   head.appendChild(seedScript);
   return "<!doctype html>\n<html lang=\"es\">"+doc.innerHTML+"</html>";
@@ -3904,7 +4364,7 @@ App.exportPortableHTML=async function(){
     const url=this.downloadFile(name,html,"text/html;charset=utf-8");
     this._lastPortable={name,html,url,bytes:new Blob([html]).size};
     this.toast("HTML portable liviano generado con datos compactados","ok");
-    const body=`<p>Archivo portable generado correctamente.</p><div class="kvs" style="margin-top:10px"><dt>Nombre</dt><dd>${esc(name)}</dd><dt>Peso estimado</dt><dd>${fmt.dec(this._lastPortable.bytes/1024/1024,2)} MB</dd><dt>Formato</dt><dd>Compactado + gzip</dd></div><div class="note" style="margin-top:12px">Si la descarga automática no apareció, usa el botón de abajo.</div>`;
+    const body=`<p>Archivo portable generado correctamente.</p><div class="kvs" style="margin-top:10px"><dt>Nombre</dt><dd>${esc(name)}</dd><dt>Peso estimado</dt><dd>${fmt.dec(this._lastPortable.bytes/1024/1024,2)} MB</dd><dt>Formato</dt><dd>Compactado v2 + gzip</dd></div><div class="note" style="margin-top:12px">Si la descarga automática no apareció, usa el botón de abajo.</div>`;
     const footer=`<a class="btn primary" href="${url}" download="${esc(name)}">Descargar HTML portable</a><button class="btn" onclick="App.closeModal()">Cerrar</button>`;
     this.modal("HTML portable listo",body,footer);
   }catch(e){ console.error(e); this.toast("No se pudo exportar el HTML portable: "+(e&&e.message?e.message:"error"),"bad"); }
@@ -4208,5 +4668,2130 @@ window.addEventListener("DOMContentLoaded",()=>{
   });
 });
 </script>
+
+<script>
+/* ============================================================
+   LOU BOTANICALS · CONECTOR APPS SCRIPT / GOOGLE SHEETS
+   v36 · Reemplaza lectura CSV pública por API propia Apps Script.
+   Motivo: un link CSV de Google normalmente publica UNA sola pestaña.
+   Con Apps Script el panel puede leer ventas_general, detalle_erp,
+   prestashop y demás pestañas con una sola URL /exec.
+   ============================================================ */
+(function(){
+  const LS_KEY = 'lou_appscript_webapp_url_v36';
+
+  const SHEETS_MAP = {
+    ventas_general: 'rawComprobantesERP',
+    detalle_erp: 'rawDetalleERP',
+    prestashop: 'rawPrestaShop',
+    meta_ads: 'rawMetaAds',
+    metas_matriz: 'rawMetas',
+    sku_normalizados: 'rawSkuOverrides',
+    canales_mapeo: 'rawCanalMapping',
+    presupuestos_mensuales: 'rawPublicidadManual'
+  };
+
+  const SHEETS_PARSE_ORDER = [
+    'ventas_general',
+    'detalle_erp',
+    'prestashop',
+    'meta_ads',
+    'metas_matriz',
+    'sku_normalizados',
+    'canales_mapeo',
+    'presupuestos_mensuales'
+  ];
+
+  const CRITICAL_SHEETS = ['ventas_general','detalle_erp','prestashop'];
+
+  function toast(msg,type='warn'){
+    if(typeof App !== 'undefined' && App.toast) App.toast(msg,type);
+    else console.log(msg);
+  }
+
+  function getWebAppUrl(){ return localStorage.getItem(LS_KEY) || ''; }
+  function setWebAppUrl(url){ localStorage.setItem(LS_KEY, String(url || '').trim()); }
+
+  function normalizeExecUrl(url){
+    url = String(url || '').trim();
+    if(!url) return '';
+    url = url.replace(/\?.*$/,'');
+    if(url.includes('/dev')) return url.replace('/dev','/exec');
+    return url;
+  }
+
+  function apiUrl(action, params={}){
+    const base = normalizeExecUrl(getWebAppUrl());
+    const q = new URLSearchParams({action, ...params});
+    return base + '?' + q.toString();
+  }
+
+  function jsonp(url){
+    return new Promise((resolve,reject)=>{
+      const cb = 'LB_cb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+      const sep = url.includes('?') ? '&' : '?';
+      const s = document.createElement('script');
+      const timer = setTimeout(()=>{
+        try{ delete window[cb]; s.remove(); }catch(e){}
+        reject(new Error('Tiempo agotado conectando con Apps Script. Revisa que esté implementado como Aplicación web y con acceso Cualquier persona.'));
+      }, 120000);
+
+      window[cb] = function(payload){
+        clearTimeout(timer);
+        delete window[cb];
+        s.remove();
+        resolve(payload);
+      };
+      s.onerror = function(){
+        clearTimeout(timer);
+        delete window[cb];
+        s.remove();
+        reject(new Error('No se pudo cargar la URL de Apps Script. Revisa la URL /exec y permisos.'));
+      };
+      s.src = url + sep + 'callback=' + encodeURIComponent(cb) + '&_=' + Date.now();
+      document.body.appendChild(s);
+    });
+  }
+
+  function payloadToRows(payload){ return [payload.headers || [], ...(payload.rows || [])]; }
+
+  function dedupeByKey(arr){
+    const m = new Map();
+    (arr || []).forEach((x,i)=>{
+      const k = x && x._k ? String(x._k) : 'row_' + i;
+      m.set(k, x);
+    });
+    return [...m.values()];
+  }
+
+  function objRows(payload){
+    const rows = payloadToRows(payload);
+    if(!rows.length || !rows[0] || !rows[0].length) return [];
+    return rowsToObjects(rows,0).objects;
+  }
+
+  function pick(o,names,def=''){
+    for(const n of names){
+      if(o[n] != null && String(o[n]).trim() !== '') return o[n];
+    }
+    return def;
+  }
+
+  function parseSheet(sheetName,payload){
+    if(!payload || !payload.ok) return [];
+    const rows = payloadToRows(payload);
+    if(!rows.length || !rows[0] || !rows[0].length) return [];
+
+    if(sheetName === 'ventas_general') return dedupeByKey(objRows(payload).map(parseComprobante).filter(Boolean));
+    if(sheetName === 'detalle_erp') return dedupeByKey(objRows(payload).map((o,i)=>parseDetalle(o,i)).filter(Boolean));
+    if(sheetName === 'prestashop') return dedupeByKey(objRows(payload).map(parsePresta).filter(Boolean));
+    if(sheetName === 'meta_ads') return dedupeByKey(objRows(payload).map(parseMetaAds).filter(Boolean));
+
+    if(sheetName === 'metas_matriz'){
+      App.metasYear = App.metasYear || new Date().getFullYear();
+      return dedupeByKey(parseMetasMatrix(rows,0));
+    }
+
+    if(sheetName === 'canales_mapeo'){
+      return dedupeByKey(objRows(payload).map((o,i)=>({
+        _k:String(pick(o,['centro ingreso erp','centroingresoerp','centro','centro de ingresos'],i)),
+        centroIngresoERP:normTxt(pick(o,['centro ingreso erp','centroingresoerp','centro','centro de ingresos'],'')),
+        ambitoComercial:normTxt(pick(o,['ambito comercial','ambitocomercial','ambito'],'Otros')),
+        canalNormalizado:normTxt(pick(o,['canal normalizado','canalnormalizado','canal'],'SIN ASIGNAR')),
+        activo:String(pick(o,['activo'],'TRUE')).toLowerCase() !== 'false',
+        observacion:normTxt(pick(o,['observacion','observación'],''))
+      })).filter(x=>x.centroIngresoERP || x.canalNormalizado));
+    }
+
+    if(sheetName === 'presupuestos_mensuales'){
+      return dedupeByKey(objRows(payload).map((o,i)=>{
+        const anio = num(pick(o,['anio','año','year'],0));
+        const mes = num(pick(o,['mes','month'],0));
+        const objetivo = normTxt(pick(o,['objetivo','tipo campana','tipo campaña','campana','campaña'],'PRESUPUESTO_META'));
+        return {
+          _k:`${anio}|${mes}|${objetivo || i}`,
+          anio,
+          mes,
+          objetivo,
+          gasto:num(pick(o,['gasto','inversion','inversión'],0)),
+          presupuestoMeta:num(pick(o,['presupuesto meta','presupuestometa'],0)),
+          presupuestoMasterclass:num(pick(o,['presupuesto masterclass','presupuestomasterclass'],0)),
+          leads:num(pick(o,['leads','resultados'],0))
+        };
+      }).filter(x=>x.anio && x.mes));
+    }
+
+    if(sheetName === 'sku_normalizados'){
+      return dedupeByKey(objRows(payload).map((o,i)=>({
+        _k:String(pick(o,['codigo','codigo int','codigoint','sku','sku codigoint','sku codigo int'],i)),
+        codigoInt:normTxt(pick(o,['codigo','codigo int','codigoint','sku','sku codigoint','sku codigo int'],'')),
+        productoNormalizado:normTxt(pick(o,['producto normalizado','productonormalizado','nombre normalizado','nombre','nombre principal'],'')),
+        lineaNegocio:normTxt(pick(o,['linea negocio','lineanegocio','linea','línea','clase'],''))
+      })).filter(x=>x.codigoInt || x.productoNormalizado));
+    }
+    return [];
+  }
+
+  async function saveParsed(sheetName,parsed){
+    const store = SHEETS_MAP[sheetName];
+    if(!store) return;
+
+    if(store === 'rawComprobantesERP') App.comprobantes = parsed;
+    if(store === 'rawDetalleERP') App.detalle = parsed;
+    if(store === 'rawPrestaShop') App.presta = parsed;
+    if(store === 'rawMetaAds') App.metaAds = parsed;
+    if(store === 'rawMetas') App.metas = parsed;
+    if(store === 'rawSkuOverrides') App.skuOverrides = parsed;
+    if(store === 'rawCanalMapping') App.canalMap = parsed.length ? parsed : App.canalMap;
+    if(store === 'rawPublicidadManual') App.publicidadManual = parsed;
+
+    if(typeof App.saveStore === 'function') await App.saveStore(store, parsed);
+  }
+
+  App.configurarGoogleSheets = function(){
+    const actual = getWebAppUrl();
+    const msg = 'Pega la URL /exec del Apps Script publicado como Aplicación web.\n\nDebe tener este formato:\nhttps://script.google.com/macros/s/XXXXXXXX/exec';
+    const u = prompt(msg, actual);
+    if(u === null) return;
+    const clean = normalizeExecUrl(u);
+    if(!clean || !clean.includes('script.google.com/macros/s/') || !clean.endsWith('/exec')){
+      alert('URL inválida. Debe ser la URL /exec de Apps Script, no el link pubhtml ni CSV del Google Sheets.');
+      return;
+    }
+    setWebAppUrl(clean);
+    toast('URL Apps Script guardada','ok');
+  };
+
+  App.verificarGoogleSheets = async function(){
+    if(!getWebAppUrl()){
+      App.configurarGoogleSheets();
+      if(!getWebAppUrl()) return null;
+    }
+
+    try{
+      toast('Verificando Apps Script...','warn');
+      const health = await jsonp(apiUrl('health'));
+      if(!health.ok) throw new Error(health.error || 'Health inválido');
+
+      const manifest = await jsonp(apiUrl('manifest'));
+      if(!manifest.ok) throw new Error(manifest.error || 'Manifest inválido');
+
+      const rows = (manifest.sheets || []).map(s=>({
+        pestana:s.name,
+        filas:s.rows,
+        columnas:s.cols,
+        requerida:s.required ? 'SI' : '',
+        headers:(s.headers || []).slice(0,6).join(' | ')
+      }));
+      console.table(rows);
+
+      const missing = manifest.missingSheets || [];
+      if(missing.length){
+        alert('Apps Script conectado, pero faltan pestañas requeridas:\n\n' + missing.join('\n') + '\n\nRevisa nombres exactos en Google Sheets.');
+      }else{
+        alert('Conexión correcta. Apps Script está leyendo el Google Sheets. Revisa consola para filas por pestaña.');
+      }
+      return manifest;
+    }catch(e){
+      console.error(e);
+      alert('Error verificando Apps Script: ' + (e && e.message ? e.message : e));
+      return null;
+    }
+  };
+
+  App.cargarDesdeGoogleSheets = async function(){
+    if(!getWebAppUrl()){
+      App.configurarGoogleSheets();
+      if(!getWebAppUrl()) return;
+    }
+
+    try{
+      toast('Conectando con Google Sheets vía Apps Script...','warn');
+      const manifest = await jsonp(apiUrl('manifest'));
+      if(!manifest.ok) throw new Error(manifest.error || 'Manifest inválido');
+
+      const available = new Set((manifest.sheets || []).map(s=>s.name));
+      const loaded = [];
+      const failed = [];
+      const loadedNames = new Set();
+
+      for(const sheetName of SHEETS_PARSE_ORDER){
+        if(!available.has(sheetName)){
+          failed.push({sheet:sheetName,error:'No existe la pestaña en el Sheets'});
+          continue;
+        }
+
+        try{
+          toast('Leyendo ' + sheetName + '...','warn');
+          const payload = await jsonp(apiUrl('sheet',{name:sheetName}));
+          if(!payload.ok) throw new Error(payload.error || 'Payload inválido');
+
+          const parsed = parseSheet(sheetName,payload);
+          await saveParsed(sheetName,parsed);
+          loadedNames.add(sheetName);
+          loaded.push({sheet:sheetName,store:SHEETS_MAP[sheetName],rows:parsed.length,source:'Apps Script'});
+          toast(sheetName + ': ' + parsed.length + ' filas','warn');
+        }catch(e){
+          failed.push({sheet:sheetName,error:e.message || String(e)});
+          console.warn('No se pudo leer', sheetName, e);
+        }
+      }
+
+      if(!loaded.length) throw new Error('No se cargó ninguna tabla útil desde Apps Script.');
+
+      App.cargas = App.cargas || [];
+      App.cargas.push({
+        _k:'google_sheets_appscript_v36_'+Date.now(),
+        fuente:'Google Sheets Apps Script',
+        nombre:'Carga viva desde Apps Script /exec',
+        fechaCarga:new Date().toISOString(),
+        filas:loaded.reduce((s,x)=>s+x.rows,0),
+        detalle:loaded.map(x=>`${x.sheet}: ${x.rows}`).join(' | ') + (failed.length ? ' | No leídas: ' + failed.map(x=>x.sheet).join(', ') : '')
+      });
+
+      if(typeof App.saveStore === 'function') await App.saveStore('cargas',App.cargas);
+      App.rebuild && App.rebuild();
+      App.render && App.render(App.curTab || 'resumen');
+      toast('Datos actualizados desde Google Sheets vía Apps Script','ok');
+
+      console.table(loaded);
+      if(failed.length) console.table(failed);
+
+      const missingCritical = CRITICAL_SHEETS.filter(s => !loadedNames.has(s));
+      if(missingCritical.length){
+        alert('Carga parcial. Faltan bases críticas: ' + missingCritical.join(', ') + '. Revisa consola y nombres de pestañas.');
+      }
+    }catch(e){
+      console.error(e);
+      alert('Error conectando Google Sheets vía Apps Script: ' + (e && e.message ? e.message : e));
+    }
+  };
+
+
+  App.actualizarBaseDesdeFuentesDrive = async function(){
+    if(!getWebAppUrl()){
+      App.configurarGoogleSheets();
+      if(!getWebAppUrl()) return;
+    }
+    const ok = confirm('Esto actualizará ventas_general, detalle_erp y prestashop dentro del Google Sheets base usando las fuentes Drive importadas. Puede tardar 1 a 4 minutos. ¿Continuar?');
+    if(!ok) return;
+    try{
+      toast('Actualizando base en Google Sheets desde fuentes Drive...','warn');
+      const payload = await jsonp(apiUrl('refreshdb'));
+      if(!payload.ok) throw new Error(payload.error || 'No se pudo actualizar la base');
+      console.table(payload.results || []);
+      alert('Base actualizada en Google Sheets. Ahora se cargarán los datos al panel.');
+      await App.cargarDesdeGoogleSheets();
+    }catch(e){
+      console.error(e);
+      alert('Error actualizando base Drive: ' + (e && e.message ? e.message : e));
+    }
+  };
+
+  App.abrirAuditoriaGoogleSheets = async function(){
+    if(!getWebAppUrl()){
+      App.configurarGoogleSheets();
+      if(!getWebAppUrl()) return;
+    }
+    try{
+      toast('Consultando auditoría Apps Script...','warn');
+      const payload = await jsonp(apiUrl('audit'));
+      if(!payload.ok) throw new Error(payload.error || ' inválida');
+      console.table(payload.workbook || []);
+      console.table(payload.formulas || []);
+      alert(' consultada. Revisa la consola: workbook, fórmulas y encabezados. Para crear pestañas de auditoría dentro del Sheets, ejecuta LB_auditarWorkbook en Apps Script.');
+    }catch(e){
+      console.error(e);
+      alert('Error consultando auditoría: ' + (e && e.message ? e.message : e));
+    }
+  };
+
+  function injectButtons(){
+    const topbar = document.getElementById('topbar');
+    if(!topbar) return;
+    if(document.getElementById('btnGoogleSheetsUpdate')) return;
+
+    const pill = document.createElement('span');
+    pill.className='sheet-source-pill';
+    pill.textContent='SOLO Apps Script';
+
+
+    const b0 = document.createElement('button');
+    b0.className='btn primary sm';
+    b0.id='btnRefreshBaseDrive';
+    b0.textContent='0) Actualizar base Drive';
+    b0.onclick=()=>App.actualizarBaseDesdeFuentesDrive();
+
+    const b1 = document.createElement('button');
+    b1.className='btn sm';
+    b1.id='btnGoogleSheetsCfg';
+    b1.textContent='1) Pegar URL /exec';
+    b1.onclick=()=>App.configurarGoogleSheets();
+
+    const b2 = document.createElement('button');
+    b2.className='btn primary sm';
+    b2.id='btnGoogleSheetsUpdate';
+    b2.textContent='2) Actualizar datos';
+    b2.onclick=()=>App.cargarDesdeGoogleSheets();
+
+    const b3 = document.createElement('button');
+    b3.className='btn sm';
+    b3.id='btnGoogleSheetsCheck';
+    b3.textContent='Verificar API';
+    b3.onclick=()=>App.verificarGoogleSheets();
+
+    const b4 = document.createElement('button');
+    b4.className='btn sm';
+    b4.id='btnGoogleSheetsAudit';
+    b4.textContent='';
+    b4.onclick=()=>App.abrirAuditoriaGoogleSheets();
+
+    const cargar = topbar.querySelector('button.primary');
+    topbar.insertBefore(pill,cargar || null);
+    topbar.insertBefore(b0,cargar || null);
+    topbar.insertBefore(b1,cargar || null);
+    topbar.insertBefore(b2,cargar || null);
+    topbar.insertBefore(b3,cargar || null);
+    topbar.insertBefore(b4,cargar || null);
+  }
+
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(injectButtons,300));
+})();
+</script>
+
+<script id="lou-direct-sheets-main-db-v43">
+/*
+  LOU BOTANICALS · CONECTOR DIRECTO BASE PRINCIPAL v43
+  - No pide URL /exec.
+  - Lee directo desde Google Sheets vía Google Visualization JSONP.
+  - Usa como única fuente la base principal Google Sheets.
+  - Lee ventas_general, detalle_erp, prestashop, metas, mapeos y presupuestos desde el mismo archivo principal.
+*/
+(function(){
+  const BASE_ID = '1ME1Xv7mRmWua-fzKkluq7QiVL2T9mgchE-4dERyjYbQ';
+  const PUBLISHED_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSTeEH4jRtrA5JHsevTQTne2E8qOS7uvCsaRTPdLZrsskQDPLzNu-RCwrJTlL8H2QEsL_wcs1pNA0I4/gviz/tq';
+
+  const SOURCE_IDS = {
+    ventas_general: '1FE83ZmXQ0zdDzSPbe0xv9FNEWiawvz4z5ZXPF8Rk9PE',
+    detalle_erp: '1YBiONLPiJ1hONM51SNOEMtOFrXEVFLwKYStwep4jBpA',
+    prestashop: '1g_-_3UTodyM4JIudmZlEcMLGn8eHC0ecdQwC2ceNZb4'
+  };
+
+  const BASE_GIDS = {
+    dashboard: 1608826520,
+    ventas_general: 1290784542,
+    detalle_erp: 2110704321,
+    prestashop: 1586039831,
+    meta_ads: 528716976,
+    metas_matriz: 287038833,
+    sku_normalizados: 1912316964,
+    canales_mapeo: 365355671,
+    ubicaciones_mapeo: 3216047,
+    promociones: 587645992,
+    config_dashboard: 1584040030,
+    presupuestos_mensuales: 2014284700,
+    resumen_mensual: 1739094565,
+    validacion_cuadre: 483471110,
+    top_productos_ciudad: 2023224877
+  };
+
+  const SHEETS_PARSE_ORDER = [
+    'ventas_general','detalle_erp','prestashop','meta_ads','metas_matriz',
+    'sku_normalizados','canales_mapeo','presupuestos_mensuales'
+  ];
+
+  const CRITICAL = new Set(['ventas_general','detalle_erp','prestashop']);
+
+  function toast(msg,type){
+    if(window.App && typeof App.toast === 'function') App.toast(msg,type||'warn');
+    else console.log(msg);
+  }
+
+  function gvizUrlFromSpec(spec, callback){
+    let base;
+    const params = new URLSearchParams();
+    params.set('tqx', 'out:json;responseHandler:' + callback);
+    params.set('headers', '0');
+    params.set('tq', spec.tq || 'select *');
+    if(spec.gid !== undefined && spec.gid !== null) params.set('gid', String(spec.gid));
+    if(spec.sheet) params.set('sheet', spec.sheet);
+    if(spec.pub){
+      base = PUBLISHED_BASE;
+    }else{
+      base = 'https://docs.google.com/spreadsheets/d/' + encodeURIComponent(spec.id || BASE_ID) + '/gviz/tq';
+    }
+    return base + '?' + params.toString();
+  }
+
+  function gvizFetch(spec){
+    return new Promise((resolve,reject)=>{
+      const cb = 'LB_GVIZ_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+      const script = document.createElement('script');
+      const timer = setTimeout(()=>{
+        cleanup();
+        reject(new Error('Timeout leyendo Google Sheets: ' + (spec.label || spec.sheet || spec.gid || spec.id || 'fuente')));
+      }, 45000);
+      function cleanup(){
+        clearTimeout(timer);
+        try{ delete window[cb]; }catch(_){ window[cb]=undefined; }
+        try{ script.remove(); }catch(_){ }
+      }
+      window[cb] = function(payload){
+        cleanup();
+        if(!payload || payload.status === 'error'){
+          const msg = payload && payload.errors && payload.errors[0] ? payload.errors[0].detailed_message || payload.errors[0].message : 'Respuesta GViz inválida';
+          reject(new Error(msg));
+        }else resolve(payload);
+      };
+      script.onerror = ()=>{
+        cleanup();
+        reject(new Error('No se pudo abrir Google Sheets. Revisa permisos/publicación.'));
+      };
+      script.src = gvizUrlFromSpec(spec, cb);
+      document.body.appendChild(script);
+    });
+  }
+
+  function valFromCell(c){
+    if(!c) return '';
+    if(c.f !== undefined && c.f !== null) return String(c.f);
+    if(c.v !== undefined && c.v !== null) return c.v;
+    return '';
+  }
+
+  function rowsFromGvizPayload(payload){
+    const table = payload && payload.table ? payload.table : {cols:[],rows:[]};
+    const colCount = Math.max(
+      table.cols ? table.cols.length : 0,
+      ...(table.rows || []).map(r => (r.c || []).length),
+      1
+    );
+    return (table.rows || []).map(r=>{
+      const cells = r.c || [];
+      const row=[];
+      for(let i=0;i<colCount;i++) row.push(valFromCell(cells[i]));
+      // recorte conservador de vacíos finales
+      let last=row.length-1;
+      while(last>0 && String(row[last] ?? '').trim()==='') last--;
+      return row.slice(0,last+1);
+    }).filter(r=>r.some(v=>String(v ?? '').trim()!==''));
+  }
+
+  function normLocal(v){
+    return String(v ?? '')
+      .trim().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/ñ/g,'n')
+      .replace(/[^a-z0-9]+/g,' ')
+      .trim();
+  }
+
+  function detectHeaderIndex(rows, sheetName){
+    const signatures = {
+      ventas_general: ['fecha de venta','serie','correlativo','subtotal','total','ruc documento','nombre cliente'],
+      detalle_erp: ['fecha de venta','codigoint','nombre','cantidad','precio vta tot','valor vta tot','categoria'],
+      prestashop: ['id order','reference','order date','sku','product name','qty','line total incl'],
+      meta_ads: ['inicio del informe','nombre de la campana','importe gastado','resultados'],
+      metas_matriz: ['canales redes','enero','febrero','marzo','total'],
+      sku_normalizados: ['sku codigoint','sku lb','nombre principal','categoria','tipo de sku'],
+      canales_mapeo: ['centro ingreso erp','ambito comercial','canal normalizado'],
+      presupuestos_mensuales: ['anio','mes','presupuesto meta','presupuesto masterclass']
+    };
+    const sig = signatures[sheetName] || [];
+    let bestIdx = 0, bestScore = -1;
+    rows.slice(0,10).forEach((row,idx)=>{
+      const txt = normLocal(row.join(' | '));
+      let score = 0;
+      sig.forEach(s=>{ if(txt.includes(normLocal(s))) score++; });
+      // penaliza filas de título/reportes
+      if(txt.includes('reporte de ventas entre')) score -= 2;
+      if(score > bestScore){ bestScore = score; bestIdx = idx; }
+    });
+    return Math.max(0,bestIdx);
+  }
+
+  function rowsToPayload(sheetName, rows){
+    const hr = detectHeaderIndex(rows, sheetName);
+    const clean = rows.slice(hr);
+    return { name: sheetName, headers: clean[0] || [], rows: clean.slice(1), headerRow: hr };
+  }
+
+  function uniqByKey(arr){
+    const m = new Map();
+    (arr||[]).forEach((x,i)=>m.set(x && x._k ? String(x._k) : 'row_' + i, x));
+    return [...m.values()];
+  }
+
+  function parseSheetForDashboard(sheetName, rawRows){
+    const payload = rowsToPayload(sheetName, rawRows);
+    const rows = [payload.headers, ...payload.rows];
+    if(!rows.length || !rows[0] || !rows[0].length) return [];
+
+    if(sheetName === 'ventas_general'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parseComprobante).filter(Boolean));
+    }
+    if(sheetName === 'detalle_erp'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>parseDetalle(o,i)).filter(Boolean));
+    }
+    if(sheetName === 'prestashop'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parsePresta).filter(Boolean));
+    }
+    if(sheetName === 'meta_ads'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parseMetaAds).filter(Boolean));
+    }
+    if(sheetName === 'metas_matriz'){
+      App.metasYear = App.metasYear || new Date().getFullYear();
+      return uniqByKey(parseMetasMatrix(rows,0));
+    }
+    if(sheetName === 'canales_mapeo'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>({
+        _k: String(o['centro ingreso erp'] || o['centroingresoerp'] || o['centro'] || i),
+        centroIngresoERP: normTxt(o['centro ingreso erp'] || o['centroingresoerp'] || o['centro'] || ''),
+        ambitoComercial: normTxt(o['ambito comercial'] || o['ambitocomercial'] || o['ambito'] || 'Otros'),
+        canalNormalizado: normTxt(o['canal normalizado'] || o['canalnormalizado'] || o['canal'] || 'SIN ASIGNAR'),
+        activo: String(o['activo'] || 'TRUE').toLowerCase() !== 'false',
+        observacion: normTxt(o['observacion'] || '')
+      })).filter(x=>x.centroIngresoERP));
+    }
+    if(sheetName === 'presupuestos_mensuales'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>{
+        const anio = num(o['anio'] || o['año']);
+        const mes = num(o['mes']);
+        const objetivo = normTxt(o['objetivo'] || o['tipo campana'] || o['tipo campaña'] || o['campana'] || o['campaña'] || 'PRESUPUESTO_META');
+        return {
+          _k:`${anio}|${mes}|${objetivo || i}`,
+          anio, mes, objetivo,
+          gasto:num(o['gasto'] || o['inversion'] || o['inversión'] || 0),
+          presupuestoMeta:num(o['presupuesto meta'] || o['presupuestometa'] || 0),
+          presupuestoMasterclass:num(o['presupuesto masterclass'] || o['presupuestomasterclass'] || 0),
+          leads:num(o['leads'] || 0)
+        };
+      }).filter(x=>x.anio && x.mes));
+    }
+    if(sheetName === 'sku_normalizados'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>({
+        _k:String(o['sku codigoint'] || o['sku codigoint'] || o['codigo'] || o['codigo int'] || o['codigoint'] || o['sku'] || i),
+        codigoInt:normTxt(o['sku codigoint'] || o['sku codigoint'] || o['codigo'] || o['codigo int'] || o['codigoint'] || o['sku'] || ''),
+        productoNormalizado:normTxt(o['nombre principal'] || o['producto normalizado'] || o['productonormalizado'] || o['nombre normalizado'] || ''),
+        lineaNegocio:normTxt(o['linea negocio'] || o['lineanegocio'] || o['linea'] || o['clase'] || '')
+      })).filter(x=>x.codigoInt));
+    }
+    return [];
+  }
+
+  function specsForSheet(sheetName){
+    // v43: fuente única = Google Sheets principal. No lee archivos fuente auxiliares.
+    // Esto evita mezclar bases antiguas y fuerza que el HTML lea las pestañas ya consolidadas.
+    return [
+      {id: BASE_ID, gid: BASE_GIDS[sheetName], label:'base principal gid ' + sheetName},
+      {id: BASE_ID, sheet: sheetName, label:'base principal nombre ' + sheetName},
+      {pub:true, gid: BASE_GIDS[sheetName], label:'publicado gid ' + sheetName}
+    ];
+  }
+
+  async function loadRawRows(sheetName){
+    let lastError = null;
+    for(const spec of specsForSheet(sheetName)){
+      try{
+        const payload = await gvizFetch(spec);
+        const rows = rowsFromGvizPayload(payload);
+        if(rows.length){
+          console.log('[Lou Sheets v43]', sheetName, 'OK', spec.label, rows.length, 'filas');
+          return {rows, source: spec.label};
+        }
+        lastError = new Error('Fuente sin filas: ' + spec.label);
+      }catch(e){
+        lastError = e;
+        console.warn('[Lou Sheets v43]', sheetName, 'falló', spec.label, e.message || e);
+      }
+    }
+    throw lastError || new Error('No se pudo leer ' + sheetName);
+  }
+
+  App.configurarGoogleSheets = function(){
+    alert('Este panel v43 ya está conectado directo al Google Sheets principal. No necesitas pegar URL /exec. Usa “Actualizar datos”.');
+  };
+
+  App.actualizarBaseDesdeFuentesDrive = async function(){
+    alert('Este panel v43 lee directamente la base principal consolidada. Primero asegúrate de ejecutar el importador v41/v42 en Sheets; luego haz clic en “Actualizar datos”.');
+  };
+
+  App.verificarGoogleSheets = async function(){
+    const results=[];
+    for(const s of SHEETS_PARSE_ORDER){
+      try{
+        const out = await loadRawRows(s);
+        results.push({pestana:s, estado:'OK', filas:out.rows.length, fuente:out.source});
+      }catch(e){
+        results.push({pestana:s, estado:'ERROR', filas:0, fuente:String(e && e.message ? e.message : e)});
+      }
+    }
+    console.table(results);
+    const missing = results.filter(r=>r.estado!=='OK' && CRITICAL.has(r.pestana));
+    if(missing.length){
+      alert('Verificación con errores en bases críticas. Revisa consola. Fallaron: ' + missing.map(x=>x.pestana).join(', '));
+    }else{
+      alert('Verificación OK. Las bases críticas están accesibles. Revisa consola para detalle de filas y fuente.');
+    }
+    return results;
+  };
+
+  App.cargarDesdeGoogleSheets = async function(){
+    const loaded=[];
+    const failed=[];
+    try{
+      // v43: limpia arrays en memoria para evitar que queden datos parciales anteriores.
+      this.comprobantes = [];
+      this.detalle = [];
+      this.presta = [];
+      this.metaAds = [];
+      this.metas = [];
+      this.skuOverrides = [];
+      this.publicidadManual = [];
+      toast('Conectando directo con Google Sheets principal...', 'warn');
+      for(const sheetName of SHEETS_PARSE_ORDER){
+        try{
+          toast('Leyendo ' + sheetName + '...', 'warn');
+          const out = await loadRawRows(sheetName);
+          const parsed = parseSheetForDashboard(sheetName, out.rows);
+          if(sheetName === 'ventas_general') this.comprobantes = parsed;
+          if(sheetName === 'detalle_erp') this.detalle = parsed;
+          if(sheetName === 'prestashop') this.presta = parsed;
+          if(sheetName === 'meta_ads') this.metaAds = parsed;
+          if(sheetName === 'metas_matriz') this.metas = parsed;
+          if(sheetName === 'sku_normalizados') this.skuOverrides = parsed;
+          if(sheetName === 'canales_mapeo') this.canalMap = parsed.length ? parsed : this.canalMap;
+          if(sheetName === 'presupuestos_mensuales') this.publicidadManual = parsed;
+          loaded.push({sheet:sheetName, rows:parsed.length, source:out.source});
+        }catch(e){
+          console.warn('[Lou Sheets v43]', sheetName, e);
+          failed.push({sheet:sheetName, error:e && e.message ? e.message : String(e)});
+          if(CRITICAL.has(sheetName)) throw new Error('No se pudo cargar base crítica ' + sheetName + ': ' + (e && e.message ? e.message : e));
+        }
+      }
+      console.table(loaded);
+      if(failed.length) console.table(failed);
+      this.cargas = this.cargas || [];
+      this.cargas.push({
+        _k:'direct_sheets_v43_' + Date.now(),
+        fuente:'Google Sheets directo v43',
+        nombre:'Carga directa desde base principal',
+        fechaCarga:new Date().toISOString(),
+        filas:loaded.reduce((s,x)=>s + (x.rows||0),0),
+        detalle:loaded.map(x=>`${x.sheet}: ${x.rows} (${x.source})`).join(' | ')
+      });
+      if(typeof this.saveStore === 'function'){
+        await this.saveStore('rawComprobantesERP', this.comprobantes || []);
+        await this.saveStore('rawDetalleERP', this.detalle || []);
+        await this.saveStore('rawPrestaShop', this.presta || []);
+        await this.saveStore('rawMetaAds', this.metaAds || []);
+        await this.saveStore('rawMetas', this.metas || []);
+        await this.saveStore('rawSkuOverrides', this.skuOverrides || []);
+        await this.saveStore('rawCanalMapping', this.canalMap || []);
+        await this.saveStore('rawPublicidadManual', this.publicidadManual || []);
+        await this.saveStore('cargas', this.cargas || []);
+      }
+      if(typeof this.rebuild === 'function') this.rebuild();
+      if(typeof this.render === 'function') this.render(this.curTab || 'resumen');
+      toast('Datos cargados desde Google Sheets directo.', 'ok');
+      alert('Datos actualizados correctamente desde Google Sheets. Filas cargadas: ' + loaded.reduce((s,x)=>s + (x.rows||0),0));
+    }catch(e){
+      console.error(e);
+      alert('Error cargando Google Sheets directo: ' + (e && e.message ? e.message : e));
+    }
+  };
+
+  App.limpiarCacheLou = async function(){
+    try{
+      const stores = ['rawComprobantesERP','rawDetalleERP','rawPrestaShop','rawMetaAds','rawMetas','rawSkuOverrides','rawCanalMapping','rawPublicidadManual','cargas'];
+      if(typeof this.saveStore === 'function'){
+        for(const st of stores) await this.saveStore(st, []);
+      }
+      this.comprobantes=[]; this.detalle=[]; this.presta=[]; this.metaAds=[]; this.metas=[]; this.skuOverrides=[]; this.publicidadManual=[];
+      if(typeof this.rebuild === 'function') this.rebuild();
+      if(typeof this.render === 'function') this.render(this.curTab || 'resumen');
+      alert('Cache local limpiado. Ahora presiona “Actualizar datos”.');
+    }catch(e){
+      console.error(e);
+      alert('No se pudo limpiar cache: ' + (e && e.message ? e.message : e));
+    }
+  };
+
+  function relabelButtons(){
+    const pill = document.querySelector('.sheet-source-pill');
+    if(pill) pill.textContent = 'Base principal v43';
+    const b0 = document.getElementById('btnRefreshBaseDrive');
+    if(b0) b0.textContent = 'Fuente directa';
+    const b1 = document.getElementById('btnGoogleSheetsCfg');
+    if(b1) b1.textContent = 'Conexión directa';
+    const b2 = document.getElementById('btnGoogleSheetsUpdate');
+    if(b2) b2.textContent = 'Actualizar datos';
+    const b3 = document.getElementById('btnGoogleSheetsCheck');
+    if(b3) b3.textContent = 'Verificar';
+    if(!document.getElementById('btnClearLouCache')){
+      const topbar = document.getElementById('topbar');
+      const cargar = topbar ? topbar.querySelector('button.primary') : null;
+      const b5 = document.createElement('button');
+      b5.className='btn sm';
+      b5.id='btnClearLouCache';
+      b5.textContent='Limpiar cache';
+      b5.onclick=()=>App.limpiarCacheLou();
+      if(topbar) topbar.insertBefore(b5,cargar || null);
+    }
+  }
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(relabelButtons,900));
+})();
+</script>
+
+
+<script>
+/* Lou Botanicals v45 · Conexión real-time por Apps Script.
+   Este bloque fuerza al dashboard a dejar de usar pubhtml/csv/GViz y usar una API /exec.
+*/
+(function(){
+  const SHEETS_PARSE_ORDER = [
+    'ventas_general',
+    'detalle_erp',
+    'prestashop',
+    'meta_ads',
+    'metas_matriz',
+    'sku_normalizados',
+    'canales_mapeo',
+    'presupuestos_mensuales'
+  ];
+  const CRITICAL = new Set(['ventas_general','detalle_erp','prestashop']);
+  const LS_KEY = 'lou_api_exec_v45';
+
+  function LB45_toast(msg, type){
+    try{
+      if(window.App && typeof App.toast === 'function') return App.toast(msg, type || 'warn');
+      if(typeof window.toast === 'function') return window.toast(msg, type || 'warn');
+      console.log('[Lou Dashboard]', msg);
+    }catch(e){
+      console.log('[Lou Dashboard]', msg);
+    }
+  }
+
+  function apiUrl(){
+    return localStorage.getItem(LS_KEY) || '';
+  }
+
+  function setApiUrl(){
+    const cur = apiUrl();
+    const u = prompt(
+      'Pega la URL /exec del Apps Script publicado como Aplicación Web.\n\nDebe tener este formato:\nhttps://script.google.com/macros/s/XXXXXXXX/exec',
+      cur
+    );
+    if(!u) return '';
+    if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec/.test(u.trim())){
+      alert('URL inválida. Debe terminar en /exec y empezar con https://script.google.com/macros/s/');
+      return '';
+    }
+    localStorage.setItem(LS_KEY, u.trim());
+    alert('URL /exec guardada. Ahora presiona “Verificar API” y luego “Actualizar datos”.');
+    return u.trim();
+  }
+
+  function jsonp(action, params = {}){
+    const base = apiUrl();
+    if(!base) throw new Error('Falta configurar la URL /exec de Apps Script.');
+    return new Promise((resolve,reject)=>{
+      const cb = 'LB45_cb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+      const q = new URLSearchParams({ action, ...params, callback: cb, _ts: Date.now() });
+      const s = document.createElement('script');
+      const timeout = setTimeout(()=>{
+        try{ delete window[cb]; s.remove(); }catch(e){}
+        reject(new Error('Timeout leyendo API Apps Script: ' + action + ' ' + (params.name || '')));
+      }, 120000);
+
+      window[cb] = function(payload){
+        clearTimeout(timeout);
+        delete window[cb];
+        s.remove();
+        if(!payload || payload.ok === false) reject(new Error((payload && payload.error) || 'Respuesta inválida de API'));
+        else resolve(payload);
+      };
+      s.onerror = function(){
+        clearTimeout(timeout);
+        delete window[cb];
+        s.remove();
+        reject(new Error('No se pudo conectar con Apps Script. Revisa que la implementación web tenga acceso “Cualquier persona”.'));
+      };
+      s.src = base + '?' + q.toString();
+      document.body.appendChild(s);
+    });
+  }
+
+  function rowsFromApi(payload){
+    return [payload.headers || [], ...(payload.rows || [])];
+  }
+
+  function uniqByKey(arr){
+    const m=new Map();
+    (arr||[]).forEach((x,i)=>m.set(x && x._k ? String(x._k) : 'row_' + i, x));
+    return [...m.values()];
+  }
+
+  function parseSheetForDashboard(sheetName, apiPayload){
+    const rows = rowsFromApi(apiPayload);
+    if(!rows.length || !rows[0] || !rows[0].length) return [];
+
+    if(sheetName === 'ventas_general'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parseComprobante).filter(Boolean));
+    }
+    if(sheetName === 'detalle_erp'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>parseDetalle(o,i)).filter(Boolean));
+    }
+    if(sheetName === 'prestashop'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parsePresta).filter(Boolean));
+    }
+    if(sheetName === 'meta_ads'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map(parseMetaAds).filter(Boolean));
+    }
+    if(sheetName === 'metas_matriz'){
+      App.metasYear = App.metasYear || new Date().getFullYear();
+      return uniqByKey(parseMetasMatrix(rows,0));
+    }
+    if(sheetName === 'canales_mapeo'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>({
+        _k: String(o['centro ingreso erp'] || o['centroingresoerp'] || o['centro'] || i),
+        centroIngresoERP: normTxt(o['centro ingreso erp'] || o['centroingresoerp'] || o['centro'] || ''),
+        ambitoComercial: normTxt(o['ambito comercial'] || o['ambitocomercial'] || o['ambito'] || 'Otros'),
+        canalNormalizado: normTxt(o['canal normalizado'] || o['canalnormalizado'] || o['canal'] || 'SIN ASIGNAR'),
+        activo: String(o['activo'] || 'TRUE').toLowerCase() !== 'false',
+        observacion: normTxt(o['observacion'] || '')
+      })).filter(x=>x.centroIngresoERP));
+    }
+    if(sheetName === 'presupuestos_mensuales'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>{
+        const anio = num(o['anio'] || o['año']);
+        const mes = num(o['mes']);
+        const objetivo = normTxt(o['objetivo'] || o['tipo campana'] || o['tipo campaña'] || o['campana'] || o['campaña'] || 'PRESUPUESTO_META');
+        return {
+          _k:`${anio}|${mes}|${objetivo || i}`,
+          anio, mes, objetivo,
+          gasto:num(o['gasto'] || o['inversion'] || o['inversión'] || 0),
+          presupuestoMeta:num(o['presupuesto meta'] || o['presupuestometa'] || 0),
+          presupuestoMasterclass:num(o['presupuesto masterclass'] || o['presupuestomasterclass'] || 0),
+          leads:num(o['leads'] || 0)
+        };
+      }).filter(x=>x.anio && x.mes));
+    }
+    if(sheetName === 'sku_normalizados'){
+      const ro = rowsToObjects(rows,0).objects;
+      return uniqByKey(ro.map((o,i)=>({
+        _k:String(o['sku codigoint'] || o['codigo'] || o['codigo int'] || o['codigoint'] || o['sku'] || i),
+        codigoInt:normTxt(o['sku codigoint'] || o['codigo'] || o['codigo int'] || o['codigoint'] || o['sku'] || ''),
+        productoNormalizado:normTxt(o['nombre principal'] || o['producto normalizado'] || o['productonormalizado'] || o['nombre normalizado'] || ''),
+        lineaNegocio:normTxt(o['linea negocio'] || o['lineanegocio'] || o['linea'] || o['clase'] || '')
+      })).filter(x=>x.codigoInt));
+    }
+    return [];
+  }
+
+  App.configurarGoogleSheets = setApiUrl;
+
+  App.verificarGoogleSheets = async function(){
+    try{
+      if(!apiUrl()) setApiUrl();
+      if(!apiUrl()) return;
+      const manifest = await jsonp('manifest');
+      console.table(manifest.sheets || []);
+      const criticalBad = (manifest.sheets || []).filter(s => s.critical && s.status !== 'OK');
+      if(criticalBad.length){
+        alert('API conectada, pero hay problemas en bases críticas: ' + criticalBad.map(x=>`${x.name}: ${x.status}`).join(' | '));
+      }else{
+        alert('API OK. Bases críticas accesibles. Revisa consola para filas/columnas por pestaña.');
+      }
+      return manifest;
+    }catch(e){
+      console.error(e);
+      alert('Error verificando API: ' + (e.message || e));
+    }
+  };
+
+  App.auditarSheets = async function(){
+    try{
+      if(!apiUrl()) setApiUrl();
+      if(!apiUrl()) return;
+      const audit = await jsonp('audit');
+      console.table(audit.audit || []);
+      const bad = (audit.audit || []).filter(x=>x.status !== 'OK');
+      alert(bad.length ? 'Auditoría con observaciones. Revisa consola.' : 'Auditoría OK.');
+      return audit;
+    }catch(e){
+      console.error(e);
+      alert('Error auditando Sheets: ' + (e.message || e));
+    }
+  };
+
+  App.limpiarCacheLou = async function(){
+    try{
+      const stores = ['rawComprobantesERP','rawDetalleERP','rawPrestaShop','rawMetaAds','rawMetas','rawSkuOverrides','rawCanalMapping','rawPublicidadManual','cargas'];
+      if(typeof DB !== 'undefined' && DB.clear){
+        for(const st of stores){
+          try{ await DB.clear(st); }catch(e){}
+        }
+      }
+      this.comprobantes=[]; this.detalle=[]; this.presta=[]; this.metaAds=[]; this.metas=[]; this.skuOverrides=[]; this.publicidadManual=[];
+      if(typeof this.rebuild === 'function') this.rebuild();
+      if(typeof this.render === 'function') this.render(this.curTab || 'resumen');
+      alert('Cache local limpiado. Ahora presiona “Actualizar datos”.');
+    }catch(e){
+      console.error(e);
+      alert('No se pudo limpiar cache: ' + (e.message || e));
+    }
+  };
+
+  App.cargarDesdeGoogleSheets = async function(){
+    try{
+      if(!apiUrl()) setApiUrl();
+      if(!apiUrl()) return;
+
+      await App.limpiarCacheLou();
+
+      const loaded = [];
+      const failed = [];
+
+      LB45_toast('Conectando con API Apps Script v45...', 'warn');
+
+      this.comprobantes = [];
+      this.detalle = [];
+      this.presta = [];
+      this.metaAds = [];
+      this.metas = [];
+      this.skuOverrides = [];
+      this.publicidadManual = [];
+
+      for(const sheetName of SHEETS_PARSE_ORDER){
+        try{
+          LB45_toast('Leyendo ' + sheetName + '...', 'warn');
+          const payload = await jsonp('sheet', { name: sheetName });
+          const parsed = parseSheetForDashboard(sheetName, payload);
+
+          if(sheetName === 'ventas_general') this.comprobantes = parsed;
+          if(sheetName === 'detalle_erp') this.detalle = parsed;
+          if(sheetName === 'prestashop') this.presta = parsed;
+          if(sheetName === 'meta_ads') this.metaAds = parsed;
+          if(sheetName === 'metas_matriz') this.metas = parsed;
+          if(sheetName === 'sku_normalizados') this.skuOverrides = parsed;
+          if(sheetName === 'canales_mapeo') this.canalMap = parsed.length ? parsed : this.canalMap;
+          if(sheetName === 'presupuestos_mensuales') this.publicidadManual = parsed;
+
+          loaded.push({
+            sheet: sheetName,
+            apiRows: payload.rowsCount,
+            parsedRows: parsed.length,
+            cols: payload.colsCount,
+            generatedAt: payload.generatedAt
+          });
+        }catch(e){
+          failed.push({ sheet: sheetName, error: e.message || String(e) });
+          console.warn('[LB v45]', sheetName, e);
+          if(CRITICAL.has(sheetName)) throw e;
+        }
+      }
+
+      console.table(loaded);
+      if(failed.length) console.table(failed);
+
+      this.cargas = this.cargas || [];
+      this.cargas.push({
+        _k:'apps_script_v45_' + Date.now(),
+        fuente:'Apps Script API v45',
+        nombre:'Carga sincronizada desde Google Sheets principal por API v45',
+        fechaCarga:new Date().toISOString(),
+        filas:loaded.reduce((s,x)=>s + (x.parsedRows||0),0),
+        detalle:loaded.map(x=>`${x.sheet}: ${x.parsedRows}/${x.apiRows}`).join(' | ')
+      });
+
+      if(typeof this.saveStore === 'function'){
+        await this.saveStore('rawComprobantesERP', this.comprobantes || []);
+        await this.saveStore('rawDetalleERP', this.detalle || []);
+        await this.saveStore('rawPrestaShop', this.presta || []);
+        await this.saveStore('rawMetaAds', this.metaAds || []);
+        await this.saveStore('rawMetas', this.metas || []);
+        await this.saveStore('rawSkuOverrides', this.skuOverrides || []);
+        await this.saveStore('rawCanalMapping', this.canalMap || []);
+        await this.saveStore('rawPublicidadManual', this.publicidadManual || []);
+        await this.saveStore('cargas', this.cargas || []);
+      }
+
+      if(typeof this.rebuild === 'function') this.rebuild();
+      if(typeof this.render === 'function') this.render(this.curTab || 'resumen');
+
+      LB45_toast('Datos sincronizados por Apps Script v45.', 'ok');
+      alert('Datos actualizados desde API v45. Filas parseadas: ' + loaded.reduce((s,x)=>s + (x.parsedRows||0),0));
+    }catch(e){
+      console.error(e);
+      alert('Error actualizando desde API v45: ' + (e.message || e));
+    }
+  };
+
+  function relabelButtons(){
+    const topbar = document.getElementById('topbar');
+    const pill = document.querySelector('.sheet-source-pill');
+    if(pill) pill.textContent = 'API tiempo real v45';
+
+    const cfg = document.getElementById('btnGoogleSheetsCfg');
+    if(cfg) cfg.textContent = 'Configurar API /exec';
+
+    const upd = document.getElementById('btnGoogleSheetsUpdate');
+    if(upd) upd.textContent = 'Actualizar datos';
+
+    const chk = document.getElementById('btnGoogleSheetsCheck');
+    if(chk) chk.textContent = 'Verificar API';
+
+    if(topbar && !document.getElementById('btnAuditV44')){
+      const b = document.createElement('button');
+      b.className = 'btn sm';
+      b.id = 'btnAuditV44';
+      b.textContent = '';
+      b.onclick = () => App.auditarSheets();
+      topbar.insertBefore(b, topbar.querySelector('button.primary') || null);
+    }
+
+    if(topbar && !document.getElementById('btnClearLouCache')){
+      const b = document.createElement('button');
+      b.className='btn sm';
+      b.id='btnClearLouCache';
+      b.textContent='Limpiar cache';
+      b.onclick=()=>App.limpiarCacheLou();
+      topbar.insertBefore(b, topbar.querySelector('button.primary') || null);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded',()=>setTimeout(relabelButtons,700));
+})();
+</script>
+
+
+<script>
+/* Lou Botanicals · Configuración automática final v46
+   Fija el endpoint Apps Script para que el panel no vuelva a pedir URL /exec.
+*/
+(function(){
+  const FINAL_EXEC_URL = "https://script.google.com/macros/s/AKfycbxgcOJGsMQBUg6tlU82-VR4UVaEGatsTYZNn81KQCKjvNWyVfqlO3GyLvj_a6AV51LR4g/exec";
+
+  try {
+    localStorage.setItem("lou_api_exec_v45", FINAL_EXEC_URL);
+    localStorage.setItem("lou_appscript_webapp_url_v36", FINAL_EXEC_URL);
+    localStorage.setItem("lou_api_exec_v46", FINAL_EXEC_URL);
+  } catch(e) {
+    console.warn("No se pudo guardar endpoint en localStorage", e);
+  }
+
+  window.LOU_FINAL_EXEC_URL = FINAL_EXEC_URL;
+
+  function waitForApp() {
+    if (!window.App) {
+      setTimeout(waitForApp, 300);
+      return;
+    }
+
+    const originalCheck = App.verificarGoogleSheets;
+    const originalLoad = App.cargarDesdeGoogleSheets;
+    const originalAudit = App.auditarSheets;
+
+    App.configurarGoogleSheets = function() {
+      try {
+        localStorage.setItem("lou_api_exec_v45", FINAL_EXEC_URL);
+        localStorage.setItem("lou_appscript_webapp_url_v36", FINAL_EXEC_URL);
+        localStorage.setItem("lou_api_exec_v46", FINAL_EXEC_URL);
+      } catch(e) {}
+      alert("API Lou Botanicals configurada automáticamente. Ya no necesitas pegar la URL /exec.");
+      return FINAL_EXEC_URL;
+    };
+
+    App.verificarGoogleSheets = async function() {
+      try {
+        localStorage.setItem("lou_api_exec_v45", FINAL_EXEC_URL);
+      } catch(e) {}
+      if (typeof originalCheck === "function") return originalCheck.call(App);
+      alert("API configurada: " + FINAL_EXEC_URL);
+    };
+
+    App.auditarSheets = async function() {
+      try {
+        localStorage.setItem("lou_api_exec_v45", FINAL_EXEC_URL);
+      } catch(e) {}
+      if (typeof originalAudit === "function") return originalAudit.call(App);
+      alert("API configurada: " + FINAL_EXEC_URL);
+    };
+
+    App.cargarDesdeGoogleSheets = async function() {
+      try {
+        localStorage.setItem("lou_api_exec_v45", FINAL_EXEC_URL);
+      } catch(e) {}
+      if (typeof originalLoad === "function") return originalLoad.call(App);
+      alert("No se encontró el cargador del dashboard. Revisa que este sea el HTML final completo.");
+    };
+
+    const labels = [
+      ["btnGoogleSheetsCfg", "API configurada"],
+      ["btnGoogleSheetsCheck", "Verificar API"],
+      ["btnGoogleSheetsUpdate", "Actualizar datos"]
+    ];
+    labels.forEach(([id, txt]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = txt;
+    });
+
+    const pill = document.querySelector(".sheet-source-pill");
+    if (pill) pill.textContent = "API fija Lou v46";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", waitForApp);
+  } else {
+    waitForApp();
+  }
+})();
+</script>
+
+
+<script id="lou-v50-decision-panel-patch">
+/*
+  LOU BOTANICALS · PATCH FINAL v50
+  Objetivo:
+  - Recupera el tablero completo/rico v43-v46: matrices KPI, doble entrada, comparativos, BCG, proyección, envíos, RFM, mapas de calor.
+  - Fija la API /exec automáticamente.
+  - Evita el flujo de respaldos/HTML descargables como camino principal.
+  - El botón principal siempre actualiza desde Google Sheets.
+*/
+(function(){
+  const FINAL_EXEC_URL = "https://script.google.com/macros/s/AKfycbxgcOJGsMQBUg6tlU82-VR4UVaEGatsTYZNn81KQCKjvNWyVfqlO3GyLvj_a6AV51LR4g/exec";
+  const API_KEYS = ["lou_api_exec_v45","lou_appscript_webapp_url_v36","lou_api_exec_v46","lou_api_exec_v50"];
+  function setEndpoint(){
+    try{ API_KEYS.forEach(k=>localStorage.setItem(k, FINAL_EXEC_URL)); }catch(e){}
+    window.LOU_FINAL_EXEC_URL = FINAL_EXEC_URL;
+  }
+  setEndpoint();
+
+  function hideLegacyExports(){
+    const topbar = document.getElementById("topbar");
+    if(!topbar) return;
+    [...topbar.querySelectorAll("button")].forEach(b=>{
+      const t=(b.textContent||"").toLowerCase();
+      if(t.includes("descargar respaldo") || t.includes("exportar html") || t.includes("index github")){
+        b.style.display="none";
+      }
+      if(t.trim()==="cargar datos"){
+        b.textContent="Actualizar datos desde Sheets";
+        b.onclick=()=>window.App && App.cargarDesdeGoogleSheets && App.cargarDesdeGoogleSheets();
+      }
+    });
+  }
+
+  function jsonpV50(url){
+    return new Promise((resolve,reject)=>{
+      const cb='LBV50_'+Date.now()+'_'+Math.random().toString(36).slice(2);
+      const s=document.createElement('script');
+      const timer=setTimeout(()=>{cleanup();reject(new Error('Timeout API v50'));},60000);
+      function cleanup(){clearTimeout(timer);try{delete window[cb];s.remove();}catch(e){}}
+      window[cb]=payload=>{cleanup();resolve(payload);};
+      s.onerror=()=>{cleanup();reject(new Error('No se pudo conectar API v50'));};
+      s.src=url+(url.includes('?')?'&':'?')+'callback='+encodeURIComponent(cb)+'&_='+Date.now();
+      document.body.appendChild(s);
+    });
+  }
+
+  async function loadQaV49(){
+    try{
+      const q = new URLSearchParams({action:"sheet",name:"qa_pedidos_montos_v49"});
+      const payload = await jsonpV50(FINAL_EXEC_URL+"?"+q.toString());
+      if(payload && payload.ok && payload.headers && payload.rows){
+        App.qaPedidosMontosV49 = payload.rows.map(row=>{
+          const o={}; payload.headers.forEach((h,i)=>o[String(h||'col_'+i).trim()]=row[i]??''); return o;
+        });
+      }
+    }catch(e){ console.warn("QA v49 no disponible",e); }
+  }
+
+  function enhanceApp(){
+    if(!window.App || !window.fmt) return setTimeout(enhanceApp,250);
+    setEndpoint();
+
+    const originalConfig = App.configurarGoogleSheets;
+    App.configurarGoogleSheets = function(){
+      setEndpoint();
+      if(App.toast) App.toast("API fija configurada. No necesitas pegar URL /exec.","ok");
+      return FINAL_EXEC_URL;
+    };
+
+    const originalLoad = App.cargarDesdeGoogleSheets;
+    App.cargarDesdeGoogleSheets = async function(){
+      setEndpoint();
+      if(typeof originalLoad === "function"){
+        const r = await originalLoad.call(App);
+        await loadQaV49();
+        if(App.rebuild) App.rebuild();
+        if(App.render) App.render(App.curTab || "resumen");
+        return r;
+      }
+      alert("No se encontró el cargador de Sheets.");
+    };
+
+    const originalVerify = App.verificarGoogleSheets;
+    App.verificarGoogleSheets = async function(){
+      setEndpoint();
+      if(typeof originalVerify === "function") return originalVerify.call(App);
+      alert("Endpoint configurado: " + FINAL_EXEC_URL);
+    };
+
+    const originalTabCargar = App.tab_cargar;
+    App.tab_cargar = function(){
+      const baseCounts=[
+        ["Comprobantes ERP",this.comprobantes.length,"ventas_general · fuente financiera oficial"],
+        ["Detalle ERP",this.detalle.length,"detalle_erp · productos, centros, sedes y líneas"],
+        ["PrestaShop",this.presta.length,"prestashop · packs, componentes y ubicación"],
+        ["Meta Ads",this.metaAds.length,"meta_ads · gasto, resultados y leads"],
+        ["Metas",this.metas.length,"metas_matriz · cumplimiento"],
+        ["Mapeos/Presupuesto",(this.canalMap||[]).length+(this.publicidadManual||[]).length,"canales + presupuestos"]
+      ];
+      return `<div class="banner ok"><div class="face">OK</div><div><b>Fuente única activa:</b> este panel debe tomar los datos desde Google Sheets / Apps Script. </div></div>
+      <div class="grid kpis">${baseCounts.map(c=>this.kpiCard({lbl:c[0],val:fmt.int(c[1]),sub:c[2],src:c[0].includes("Meta")?"meta":c[0].includes("Presta")?"der":"erp"})).join("")}</div>
+      <div class="card" style="margin-top:16px">
+        <h3>Actualizar base viva</h3>
+        <div class="note ok"><b>Fuente:</b> actualiza el Google Sheets base y luego presiona el botón principal. El panel recalcula las matrices, comparativos, BCG, proyección, envíos, clientes y QA desde la misma base.</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn primary" onclick="App.cargarDesdeGoogleSheets()">Actualizar datos desde Sheets</button>
+          <button class="btn" onclick="App.verificarGoogleSheets()">Verificar API</button>
+          <button class="btn" onclick="App.abrirAuditoriaGoogleSheets && App.abrirAuditoriaGoogleSheets()"></button>
+        </div>
+      </div>`;
+    };
+
+    const originalVerificacion = App.tab_verificacion;
+    App.tab_verificacion = function(){
+      const old = typeof originalVerificacion === "function" ? originalVerificacion.call(App) : "";
+      const qa = App.qaPedidosMontosV49 || [];
+      const qaHtml = qa.length ? `
+        <div class="card" style="margin-bottom:16px">
+          <h3>QA v49 · Pedidos y montos entre los 3 reportes</h3>
+          <div class="ch-sub">Control directo desde la pestaña qa_pedidos_montos_v49. Ventas generales es la fuente financiera oficial; PrestaShop y componentes son auditoría operativa.</div>
+          <div style="overflow:auto"><table class="dt"><thead><tr>
+            <th>Fuente</th><th class="num">Pedidos únicos</th><th class="num">Líneas</th><th class="num">Monto sin IGV</th><th class="num">Dif. vs ventas_general</th><th>Estado</th><th>Regla</th>
+          </tr></thead><tbody>${qa.map(r=>`<tr>
+            <td><b>${esc(r.Fuente||"")}</b></td>
+            <td class="num">${fmt.int(num(r["Pedidos únicos"]))}</td>
+            <td class="num">${fmt.int(num(r["Líneas"]))}</td>
+            <td class="num">${fmt.money(num(r["Monto sin IGV"]),2)}</td>
+            <td class="num">${fmt.money(num(r["Diferencia vs ventas_general"]),2)}</td>
+            <td><span class="pill ${(String(r.Estado||"").includes("OK")||String(r.Estado||"").includes("OFICIAL"))?"ok":String(r.Estado||"").includes("REVISAR")?"warn":"bad"}">${esc(r.Estado||"")}</span></td>
+            <td>${esc(r.Regla||"")}</td>
+          </tr>`).join("")}</tbody></table></div>
+        </div>` : "";
+      return qaHtml + old;
+    };
+
+    // Ajustes visuales y de etiqueta.
+    document.title = "Lou Botanicals · Dashboard General Final v50";
+    const brandSub = document.querySelector(".brand .t span");
+    if(brandSub) brandSub.textContent = "Panel decisional v50";
+    const title = document.getElementById("pageTitle");
+    if(title && title.textContent.trim()==="Resumen ejecutivo") title.textContent = "Resumen ejecutivo";
+
+    hideLegacyExports();
+
+    // Carga automática: una vez la UI esté lista, trae Google Sheets sin pedir URL.
+    setTimeout(async ()=>{
+      try{
+        setEndpoint();
+        hideLegacyExports();
+        if(App.comprobantes && App.comprobantes.length){
+          await loadQaV49();
+          if(App.render) App.render(App.curTab || "resumen");
+          return;
+        }
+        if(App.cargarDesdeGoogleSheets) await App.cargarDesdeGoogleSheets();
+      }catch(e){
+        console.error("Autocarga v50 falló",e);
+        if(App.toast) App.toast("Autocarga falló. Presiona Actualizar datos desde Sheets.","warn");
+      }
+    },1300);
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",()=>setTimeout(enhanceApp,300));
+  }else{
+    setTimeout(enhanceApp,300);
+  }
+})();
+</script>
+
+
+<script id="lou-v52-clean-sheets-map-patch">
+(function(){
+  const FINAL_EXEC_URL = "https://script.google.com/macros/s/AKfycbxgcOJGsMQBUg6tlU82-VR4UVaEGatsTYZNn81KQCKjvNWyVfqlO3GyLvj_a6AV51LR4g/exec";
+  const PUB_GVIZ = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTeEH4jRtrA5JHsevTQTne2E8qOS7uvCsaRTPdLZrsskQDPLzNu-RCwrJTlL8H2QEsL_wcs1pNA0I4/gviz/tq";
+  const DIRECT_GVIZ = "https://docs.google.com/spreadsheets/d/1ME1Xv7mRmWua-fzKkluq7QiVL2T9mgchE-4dERyjYbQ/gviz/tq";
+  const GEOJSON_URLS = [
+    "https://cdn.jsdelivr.net/gh/juaneladio/peru-geojson@master/peru_departamental_simple.geojson",
+    "https://raw.githubusercontent.com/juaneladio/peru-geojson/refs/heads/master/peru_departamental_simple.geojson"
+  ];
+
+  function setEndpoint(){
+    try{
+      ["lou_api_exec_v45","lou_appscript_webapp_url_v36","lou_api_exec_v46","lou_api_exec_v50","lou_api_exec_v51"].forEach(k=>localStorage.setItem(k,FINAL_EXEC_URL));
+    }catch(e){}
+    window.LOU_FINAL_EXEC_URL = FINAL_EXEC_URL;
+  }
+
+  function normMap(s){
+    return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ").trim().toUpperCase();
+  }
+
+  function numMap(v){
+    if(v==null||v==="")return 0;
+    if(typeof v==="number")return isFinite(v)?v:0;
+    let s=String(v).replace(/S\/\.?/g,"").replace(/\s/g,"").trim();
+    if(s.indexOf(",")>-1&&s.indexOf(".")>-1)s=s.replace(/,/g,"");
+    else if(s.indexOf(",")>-1)s=s.replace(",",".");
+    s=s.replace(/[^0-9.-]/g,"");
+    const n=parseFloat(s);
+    return isFinite(n)?n:0;
+  }
+
+  function moneyMap(v){
+    return "S/ " + numMap(v).toLocaleString("es-PE",{minimumFractionDigits:2,maximumFractionDigits:2});
+  }
+
+  function cleanButtons(){
+    const banned = [
+      "descargar respaldo","exportar html","exportar html liviano","index github","index github liviano",
+      "auditoria api","auditoría api","auditar sheets","auditar sheet","publicar en github","github"
+    ];
+    document.querySelectorAll("button,a.btn").forEach(el=>{
+      const t=(el.textContent||"").trim().toLowerCase();
+      const action=(el.getAttribute("onclick")||"").toLowerCase();
+      if(banned.some(x=>t.includes(x)||action.includes("exportbackup")||action.includes("exportportable")||action.includes("exportgithub")||action.includes("abrirauditoria"))){
+        el.setAttribute("data-v51-hide","1");
+        el.classList.add("lb-clean-hidden");
+      }
+      if(t==="cargar datos" || t==="fuente directa" || t==="conexión directa"){
+        el.textContent="Actualizar datos";
+        el.onclick=()=>window.App&&App.cargarDesdeGoogleSheets&&App.cargarDesdeGoogleSheets();
+      }
+    });
+
+    document.querySelectorAll('#nav button').forEach(b=>{
+      const tab=b.dataset.tab;
+      if(["cargar","cargas","config"].includes(tab)){
+        b.classList.add("lb-clean-hidden");
+      }
+    });
+    document.querySelectorAll(".lbl").forEach(lbl=>{
+      const txt=(lbl.textContent||"").toLowerCase();
+      if(txt.includes("datos")||txt.includes("sistema")) lbl.classList.add("lb-clean-hidden");
+    });
+  }
+
+  function jsonp(url,params,cbName="callback"){
+    return new Promise((resolve,reject)=>{
+      const cb="LBV51_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+      const q=new URLSearchParams(params||{});
+      q.set(cbName,cb); q.set("_",Date.now());
+      const s=document.createElement("script");
+      const timer=setTimeout(()=>{cleanup();reject(new Error("timeout"));},60000);
+      function cleanup(){clearTimeout(timer);try{delete window[cb];s.remove();}catch(e){}}
+      window[cb]=payload=>{cleanup();resolve(payload)};
+      s.onerror=()=>{cleanup();reject(new Error("script error"))};
+      s.src=url+(url.includes("?")?"&":"?")+q.toString();
+      document.body.appendChild(s);
+    });
+  }
+
+  async function readSheetGviz(sheet){
+    const bases=[PUB_GVIZ,DIRECT_GVIZ];
+    let lastErr=null;
+    for(const base of bases){
+      try{
+        const cb="gviz_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+        const payload=await new Promise((resolve,reject)=>{
+          const q=new URLSearchParams({sheet,tq:"select *",tqx:`out:json;responseHandler:${cb}`});
+          const s=document.createElement("script");
+          const timer=setTimeout(()=>{cleanup();reject(new Error("timeout gviz"));},60000);
+          function cleanup(){clearTimeout(timer);try{delete window[cb];s.remove();}catch(e){}}
+          window[cb]=p=>{cleanup();resolve(p)};
+          s.onerror=()=>{cleanup();reject(new Error("gviz error"))};
+          s.src=base+"?"+q.toString();
+          document.body.appendChild(s);
+        });
+        if(payload.status&&payload.status!=="ok")throw new Error("gviz status");
+        const headers=(payload.table.cols||[]).map(c=>String(c.label||c.id||"").trim());
+        const rows=(payload.table.rows||[]).map(row=>{
+          const o={};
+          (row.c||[]).forEach((c,i)=>o[headers[i]||("col_"+i)]=c?(c.f??c.v??""):"");
+          return o;
+        }).filter(r=>Object.values(r).some(v=>String(v||"").trim()!==""));
+        if(rows.length)return rows;
+      }catch(e){lastErr=e;}
+    }
+    throw lastErr||new Error("No se pudo leer "+sheet);
+  }
+
+  async function readSheetApi(sheet){
+    try{
+      const payload=await jsonp(FINAL_EXEC_URL,{action:"sheet",name:sheet},"callback");
+      if(payload&&payload.ok&&payload.headers){
+        return (payload.rows||[]).map(row=>{
+          const o={}; payload.headers.forEach((h,i)=>o[String(h||"col_"+i).trim()]=row[i]??""); return o;
+        });
+      }
+    }catch(e){}
+    return readSheetGviz(sheet);
+  }
+
+  async function loadDemografiaPresta(){
+    if(App._demografiaPrestaV51 && App._demografiaPrestaV51.length)return App._demografiaPrestaV51;
+    const rows=await readSheetApi("ventas_demograficas_v47");
+    const mapped=rows.map(r=>{
+      const dep=r.departamento||r.Departamento||r.shipping_state||r["shipping_state"]||r["Shipping State"]||"";
+      const dist=r.distrito_ciudad||r.distrito||r.ciudad||r.shipping_city||r["shipping_city"]||"";
+      const pedidos=numMap(r.pedidos||r["líneas/pedidos"]||r.lineas||r["lineas"]||r["count"]||r["count(B)"]);
+      const venta=numMap(r.venta_sin_igv||r["venta_sin_igv"]||r["sum"]||r["sum(J)"]||r["Monto sin IGV"]);
+      return {departamento:String(dep||"").trim(),distrito:String(dist||"").trim(),pedidos,venta};
+    }).filter(r=>r.departamento||r.distrito);
+    App._demografiaPrestaV51=mapped;
+    return mapped;
+  }
+
+  function deptAgg(rows){
+    const m=new Map();
+    rows.forEach(r=>{
+      const k=normMap(r.departamento||"SIN UBICACIÓN");
+      const label=String(r.departamento||"SIN UBICACIÓN").trim().toUpperCase();
+      const o=m.get(k)||{key:k,label,venta:0,pedidos:0};
+      o.venta+=numMap(r.venta); o.pedidos+=numMap(r.pedidos);
+      m.set(k,o);
+    });
+    return [...m.values()].sort((a,b)=>b.venta-a.venta);
+  }
+
+  function limaAgg(rows){
+    const m=new Map();
+    rows.filter(r=>normMap(r.departamento)==="LIMA").forEach(r=>{
+      const k=normMap(r.distrito||"SIN DISTRITO");
+      const label=String(r.distrito||"SIN DISTRITO").trim().toUpperCase();
+      const o=m.get(k)||{key:k,label,venta:0,pedidos:0};
+      o.venta+=numMap(r.venta); o.pedidos+=numMap(r.pedidos);
+      m.set(k,o);
+    });
+    return [...m.values()].sort((a,b)=>b.venta-a.venta);
+  }
+
+  function bars(rows,maxRows=10){
+    const max=Math.max(1,...rows.map(r=>r.venta));
+    return `<div style="margin-top:10px">${rows.slice(0,maxRows).map(r=>`
+      <div class="lb-map-bar">
+        <b title="${r.label}">${r.label}</b>
+        <div class="lb-map-track"><i style="width:${Math.max(3,(r.venta/max)*100)}%"></i></div>
+        <div class="num">${moneyMap(r.venta)}</div>
+      </div>`).join("")}</div>`;
+  }
+
+  function tableRows(rows){
+    return `<div style="overflow:auto;max-height:520px"><table class="dt"><thead><tr>
+      <th>Departamento</th><th>Distrito / ciudad</th><th class="num">Pedidos</th><th class="num">Venta sin IGV</th>
+    </tr></thead><tbody>${rows.map(r=>`<tr>
+      <td>${esc(r.departamento||"")}</td><td>${esc(r.distrito||"")}</td>
+      <td class="num">${fmt.int(numMap(r.pedidos))}</td><td class="num">${fmt.money(numMap(r.venta),2)}</td>
+    </tr>`).join("")}</tbody></table></div>`;
+  }
+
+  function renderDemoHTML(rows){
+    const depts=deptAgg(rows), lima=limaAgg(rows);
+    const totalVenta=depts.reduce((s,x)=>s+x.venta,0);
+    const totalPedidos=depts.reduce((s,x)=>s+x.pedidos,0);
+    return `
+      ${App.filterBar ? App.filterBar() : ""}
+      <div class="grid kpis">
+        ${App.kpiCard({lbl:"Venta demográfica",val:fmt.money(totalVenta,2),sub:"PrestaShop · sin IGV",src:"der"})}
+        ${App.kpiCard({lbl:"Pedidos/líneas",val:fmt.int(totalPedidos),sub:"PrestaShop demográfico",src:"der"})}
+        ${App.kpiCard({lbl:"Departamentos",val:fmt.int(depts.length),sub:"con venta registrada",src:"der"})}
+        ${App.kpiCard({lbl:"Distritos Lima",val:fmt.int(lima.length),sub:"con venta registrada",src:"der"})}
+      </div>
+      <div class="lb-map-grid">
+        <div class="lb-map-card">
+          <h3>Mapa Perú por departamento</h3>
+          <div class="ch-sub">Fuente: PrestaShop. Métrica: venta sin IGV.</div>
+          <div class="lb-map-wrap"><svg id="lbPeruMapSvg"></svg><div id="lbMapTip" class="lb-map-tip"></div></div>
+        </div>
+        <div class="lb-map-card">
+          <h3>Top departamentos</h3>
+          ${bars(depts,12)}
+          <h3 style="margin-top:18px">Top distritos Lima</h3>
+          ${bars(lima,12)}
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Detalle demográfico PrestaShop</h3>
+        ${tableRows(rows)}
+      </div>`;
+  }
+
+  async function ensureGeo(){
+    if(App._geoPeruV51)return App._geoPeruV51;
+    for(const url of GEOJSON_URLS){
+      try{
+        const res=await fetch(url,{cache:"force-cache"});
+        if(!res.ok)throw new Error("HTTP "+res.status);
+        App._geoPeruV51=await res.json();
+        return App._geoPeruV51;
+      }catch(e){}
+    }
+    throw new Error("GeoJSON Perú no disponible");
+  }
+
+  function getFeatureName(f){
+    const p=f.properties||{};
+    return p.NOMBDEP||p.NOMB_DPTO||p.DEPARTAMEN||p.DEPARTAMENTO||p.name||p.NAME||"";
+  }
+
+  async function drawPeruMapV51(rows){
+    if(!window.d3)return;
+    const svgNode=document.getElementById("lbPeruMapSvg");
+    if(!svgNode)return;
+    const svg=d3.select(svgNode);
+    svg.selectAll("*").remove();
+    const geo=await ensureGeo();
+    const agg=deptAgg(rows);
+    const byKey=new Map(agg.map(x=>[x.key,x]));
+    const max=Math.max(1,...agg.map(x=>x.venta));
+    const color=d3.scaleSequential().domain([0,max]).interpolator(d3.interpolateRgbBasis(["#f4e6eb","#d6a7b6","#9b6278","#5e3650"]));
+    const w=svgNode.clientWidth||800,h=svgNode.clientHeight||560;
+    svg.attr("viewBox",`0 0 ${w} ${h}`);
+    const g=svg.append("g");
+    const projection=d3.geoMercator().fitExtent([[35,35],[w-35,h-35]],geo);
+    const path=d3.geoPath(projection);
+    const tip=document.getElementById("lbMapTip");
+    const zoom=d3.zoom().scaleExtent([1,7]).on("zoom",ev=>g.attr("transform",ev.transform));
+    svg.call(zoom);
+    g.selectAll("path").data(geo.features).join("path")
+      .attr("class","lb-dept")
+      .attr("d",path)
+      .attr("fill",f=>{
+        const d=byKey.get(normMap(getFeatureName(f)));
+        return d?color(d.venta):"#f1e8e4";
+      })
+      .on("mouseenter",(ev,f)=>{
+        const name=getFeatureName(f);
+        const d=byKey.get(normMap(name))||{label:name,venta:0,pedidos:0};
+        tip.innerHTML=`<h4>${esc(name)}</h4><div class="r"><span>Venta sin IGV</span><b>${moneyMap(d.venta)}</b></div><div class="r"><span>Pedidos/líneas</span><b>${fmt.int(d.pedidos)}</b></div>`;
+        tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.classList.add("show");
+      })
+      .on("mousemove",ev=>{tip.style.left=ev.clientX+"px";tip.style.top=ev.clientY+"px";})
+      .on("mouseleave",()=>tip.classList.remove("show"))
+      .on("click",(ev,f)=>{
+        const key=normMap(getFeatureName(f));
+        d3.selectAll(".lb-dept").classed("active",false);
+        d3.select(ev.currentTarget).classed("active",true);
+        const sel=document.querySelector("[data-map-selected]");
+        if(sel)sel.remove();
+        const d=byKey.get(key)||{label:getFeatureName(f),venta:0,pedidos:0};
+        const card=document.querySelector(".lb-map-card:nth-child(2)");
+        if(card){
+          const div=document.createElement("div");
+          div.setAttribute("data-map-selected","1");
+          div.className="note ok";
+          div.style.marginTop="12px";
+          div.innerHTML=`<b>${esc(d.label)}</b><br>Venta sin IGV: ${moneyMap(d.venta)} · Pedidos/líneas: ${fmt.int(d.pedidos)}`;
+          card.prepend(div);
+        }
+      });
+  }
+
+  function enhanceV51(){
+    if(!window.App || typeof TABS === "undefined" || !window.fmt || !window.esc) return setTimeout(enhanceV51,250);
+    setEndpoint();
+
+    // Remove upload/system tabs from navigation only; keep functions internally if old hashes exist.
+    const blocked=new Set(["cargar","cargas","config"]);
+    for(let i=TABS.length-1;i>=0;i--){
+      if(blocked.has(TABS[i].id)) TABS.splice(i,1);
+    }
+    if(!TABS.some(t=>t.id==="ventas_demograficas")){
+      const idx=TABS.findIndex(t=>t.id==="calor");
+      TABS.splice(idx>=0?idx+1:TABS.length,0,{id:"ventas_demograficas",label:"Ventas demográficas",ico:"",grp:"tiempo"});
+    }
+    // Ensure the page subtitle dictionary can describe it without altering other views.
+    try{ if(window.App) App._v52VentasDemograficasReady = true; }catch(e){}
+
+    const oldBuild=App.buildNav;
+    App.buildNav=function(){
+      oldBuild.call(this);
+      cleanButtons();
+    };
+
+    const oldGo=App.go;
+    App.go=function(id){
+      if(blocked.has(id)) id="resumen";
+      oldGo.call(this,id);
+      cleanButtons();
+    };
+
+    App.emptyState=function(){
+      return `<div class="card"><div class="empty"><div class="e-ic">LB</div><div class="e-t">Sin datos sincronizados</div><div>Actualiza los datos desde Google Sheets.</div><div style="margin-top:16px"><button class="btn primary" onclick="App.cargarDesdeGoogleSheets()">Actualizar datos</button></div></div></div>`;
+    };
+
+    const oldRender=App.render;
+    App.render=function(id){
+      if(blocked.has(id)) id="resumen";
+      try{
+        return oldRender.call(this,id);
+      }catch(e){
+        console.error(e);
+        const c=document.getElementById("content");
+        if(c)c.innerHTML=`<div class="card"><div class="empty"><div class="e-ic">ERR</div><div class="e-t">No se pudo abrir esta vista</div><div class="muted">${esc(e&&e.message?e.message:e)}</div><div style="margin-top:14px"><button class="btn primary" onclick="App.cargarDesdeGoogleSheets()">Actualizar datos</button></div></div></div>`;
+      }
+    };
+
+    const oldLoad=App.cargarDesdeGoogleSheets;
+    App.cargarDesdeGoogleSheets=async function(){
+      setEndpoint();
+      const r=typeof oldLoad==="function" ? await oldLoad.call(this) : null;
+      try{ await loadDemografiaPresta(); }catch(e){console.warn(e);}
+      cleanButtons();
+      if(this.curTab==="ventas_demograficas") this.render("ventas_demograficas");
+      return r;
+    };
+
+    App.tab_ventas_demograficas=function(){
+      const rows=this._demografiaPrestaV51||[];
+      if(!rows.length){
+        loadDemografiaPresta().then(()=>this.render("ventas_demograficas")).catch(e=>this.toast&&this.toast("No se pudo leer ventas_demograficas_v47","bad"));
+        return `${this.filterBar?this.filterBar():""}<div class="card"><div class="empty">Sincronizando ventas demográficas desde PrestaShop.</div></div>`;
+      }
+      let filtered=rows.slice();
+      const f=this.filters||{};
+      if(f.search){
+        const q=normMap(f.search);
+        filtered=filtered.filter(r=>normMap(Object.values(r).join(" ")).includes(q));
+      }
+      return renderDemoHTML(filtered);
+    };
+    App.after_ventas_demograficas=function(){
+      const rows=this._demografiaPrestaV51||[];
+      drawPeruMapV51(rows).catch(e=>console.warn(e));
+    };
+
+    // Button labels / topbar cleanup.
+    cleanButtons();
+    document.title="Lou Botanicals · Panel Decisional v53";
+    const brandSub=document.querySelector(".brand .t span");
+    if(brandSub) brandSub.textContent="Panel decisional v53";
+    if(location.hash==="#cargar"||location.hash==="#cargas"||location.hash==="#config") location.hash="#resumen";
+
+    // Rebuild nav after TABS mutation.
+    try{ App.buildNav(); App.go(App.curTab&& !blocked.has(App.curTab)?App.curTab:"resumen"); }catch(e){console.warn(e);}
+    loadDemografiaPresta().then(()=>{ if(App.curTab==="ventas_demograficas")App.render("ventas_demograficas"); }).catch(()=>{});
+    // Fallback: if the navigation did not include the tab for any prior rendering order, inject it visually.
+    setTimeout(()=>{
+      try{
+        const nav=document.getElementById('nav');
+        if(nav && !nav.querySelector('[data-tab="ventas_demograficas"]')){
+          const after=nav.querySelector('[data-tab="calor"]');
+          const btn=document.createElement('button');
+          btn.dataset.tab='ventas_demograficas';
+          btn.innerHTML='Ventas demográficas';
+          btn.onclick=()=>App.go('ventas_demograficas');
+          if(after) after.insertAdjacentElement('afterend',btn); else nav.appendChild(btn);
+        }
+      }catch(e){}
+    },800);
+  }
+
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(enhanceV51,500));
+  else setTimeout(enhanceV51,500);
+})();
+</script>
+
+
+<script id="lou-v53-demografia-productos-patch">
+(function(){
+  const FINAL_EXEC_URL = "https://script.google.com/macros/s/AKfycbxgcOJGsMQBUg6tlU82-VR4UVaEGatsTYZNn81KQCKjvNWyVfqlO3GyLvj_a6AV51LR4g/exec";
+  const PUB_GVIZ = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTeEH4jRtrA5JHsevTQTne2E8qOS7uvCsaRTPdLZrsskQDPLzNu-RCwrJTlL8H2QEsL_wcs1pNA0I4/gviz/tq";
+  const DIRECT_GVIZ = "https://docs.google.com/spreadsheets/d/1ME1Xv7mRmWua-fzKkluq7QiVL2T9mgchE-4dERyjYbQ/gviz/tq";
+  const GEOJSON_URLS = [
+    "https://cdn.jsdelivr.net/gh/juaneladio/peru-geojson@master/peru_departamental_simple.geojson",
+    "https://raw.githubusercontent.com/juaneladio/peru-geojson/refs/heads/master/peru_departamental_simple.geojson"
+  ];
+
+  function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ").trim().toUpperCase();}
+  function num(v){if(v==null||v==="")return 0;if(typeof v==="number")return isFinite(v)?v:0;let s=String(v).replace(/S\/\.?/g,"").replace(/\s/g,"").trim();if(s.indexOf(",")>-1&&s.indexOf(".")>-1)s=s.replace(/,/g,"");else if(s.indexOf(",")>-1)s=s.replace(",",".");s=s.replace(/[^0-9.-]/g,"");const n=parseFloat(s);return isFinite(n)?n:0}
+  function money(v){return "S/ "+num(v).toLocaleString("es-PE",{minimumFractionDigits:2,maximumFractionDigits:2})}
+  function int(v){return num(v).toLocaleString("es-PE",{maximumFractionDigits:0})}
+  function esc2(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+  function setEndpoint(){try{["lou_api_exec_v45","lou_appscript_webapp_url_v36","lou_api_exec_v46","lou_api_exec_v50","lou_api_exec_v51","lou_api_exec_v53"].forEach(k=>localStorage.setItem(k,FINAL_EXEC_URL));}catch(e){}}
+
+  function cleanButtons(){
+    const banned=["descargar respaldo","exportar html","index liviano","index github","auditoria api","auditoría api","auditar sheets","auditar sheet","exportar html liviano","github"];
+    document.querySelectorAll("button,a.btn").forEach(el=>{
+      const t=(el.textContent||"").trim().toLowerCase();
+      const oc=(el.getAttribute("onclick")||"").toLowerCase();
+      if(banned.some(b=>t.includes(b)) || /exportbackup|exportportable|exportgithub|abrirauditoria/.test(oc)){
+        el.classList.add("lb-clean-hidden");
+      }
+      if(t==="cargar datos"){
+        el.textContent="Actualizar datos";
+        el.onclick=()=>{ if(window.App&&App.cargarDesdeGoogleSheets) App.cargarDesdeGoogleSheets(); else renderV53(); };
+      }
+    });
+    document.querySelectorAll('#nav [data-tab="cargar"],#nav [data-tab="cargas"],#nav [data-tab="config"]').forEach(x=>x.classList.add("lb-clean-hidden"));
+  }
+
+  function jsonp(url,params,cbp="callback"){
+    return new Promise((resolve,reject)=>{
+      const cb="LBV53_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+      const q=new URLSearchParams(params||{}); q.set(cbp,cb); q.set("_",Date.now());
+      const s=document.createElement("script"); const timer=setTimeout(()=>{cleanup();reject(new Error("timeout"));},65000);
+      function cleanup(){clearTimeout(timer);try{delete window[cb];s.remove()}catch(e){}}
+      window[cb]=p=>{cleanup();resolve(p)};
+      s.onerror=()=>{cleanup();reject(new Error("script error"))};
+      s.src=url+(url.includes("?")?"&":"?")+q.toString();
+      document.body.appendChild(s);
+    });
+  }
+
+  async function readApi(sheet){
+    try{
+      const p=await jsonp(FINAL_EXEC_URL,{action:"sheet",name:sheet},"callback");
+      if(p&&p.ok&&p.headers){
+        return (p.rows||[]).map(row=>{const o={};p.headers.forEach((h,i)=>o[String(h||"col_"+i).trim()]=row[i]??"");return o;});
+      }
+    }catch(e){}
+    return readGviz(sheet);
+  }
+
+  async function readGviz(sheet){
+    const bases=[PUB_GVIZ,DIRECT_GVIZ];
+    let last=null;
+    for(const base of bases){
+      try{
+        const cb="gvizV53_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+        const p=await new Promise((resolve,reject)=>{
+          const q=new URLSearchParams({sheet,tq:"select *",tqx:`out:json;responseHandler:${cb}`});
+          const s=document.createElement("script"); const timer=setTimeout(()=>{cleanup();reject(new Error("timeout gviz"));},65000);
+          function cleanup(){clearTimeout(timer);try{delete window[cb];s.remove()}catch(e){}}
+          window[cb]=x=>{cleanup();resolve(x)}; s.onerror=()=>{cleanup();reject(new Error("gviz error"))};
+          s.src=base+"?"+q.toString(); document.body.appendChild(s);
+        });
+        if(p.status&&p.status!=="ok")throw new Error("gviz status");
+        const headers=(p.table.cols||[]).map(c=>String(c.label||c.id||"").trim());
+        const rows=(p.table.rows||[]).map(row=>{const o={};(row.c||[]).forEach((c,i)=>o[headers[i]||("col_"+i)]=c?(c.f??c.v??""):"");return o;}).filter(r=>Object.values(r).some(v=>String(v||"").trim()!==""));
+        if(rows.length)return rows;
+      }catch(e){last=e}
+    }
+    throw last||new Error("no se pudo leer "+sheet);
+  }
+
+  async function loadProductZones(){
+    if(window.LB_V53_PRODUCT_ZONES && window.LB_V53_PRODUCT_ZONES.length) return window.LB_V53_PRODUCT_ZONES;
+
+    const [prodRows, packRows] = await Promise.all([
+      readApi("base_productos_norm_v47"),
+      readApi("base_packs_dedup_v47")
+    ]);
+
+    const locByOrder = new Map();
+    packRows.forEach(r=>{
+      const order=String(r.id_order||r.ID_ORDER||r["id_order"]||"").trim();
+      const dep=String(r.shipping_state||r.departamento||r.Department||r["shipping_state"]||"").trim().toUpperCase();
+      const dist=String(r.shipping_city||r.distrito_ciudad||r.city||r["shipping_city"]||"").trim().toUpperCase();
+      if(order && (dep||dist) && !locByOrder.has(order)) locByOrder.set(order,{dep,dist});
+    });
+
+    const out=[];
+    prodRows.forEach(r=>{
+      const sku=String(r.sku||r.SKU||"").trim();
+      if(!sku || sku==="S0010") return;
+      const order=String(r.id_order||r.ID_ORDER||r["id_order"]||"").trim();
+      const loc=locByOrder.get(order);
+      if(!loc || (!loc.dep && !loc.dist)) return;
+      out.push({
+        departamento: loc.dep || "SIN UBICACIÓN",
+        distrito: loc.dist || "SIN DISTRITO",
+        sku,
+        producto: String(r.producto||r.product_name||r.Nombre||r["producto"]||"").trim(),
+        unidades: num(r.unidades||r.qty||r.Cantidad),
+        venta: num(r.venta_sin_igv||r.line_total_excl||r["venta_sin_igv"]),
+        origen: String(r.origen||"").trim()
+      });
+    });
+    window.LB_V53_PRODUCT_ZONES=out;
+    return out;
+  }
+
+  function group(rows,keyFn,addFn){
+    const m=new Map();
+    rows.forEach(r=>{
+      const key=keyFn(r);
+      if(!key) return;
+      const o=m.get(key)||addFn(null,r,key);
+      addFn(o,r,key);
+      m.set(key,o);
+    });
+    return [...m.values()];
+  }
+
+  function groupDept(rows){
+    return group(rows,r=>norm(r.departamento),(o,r,key)=> o? (o.venta+=r.venta,o.unidades+=r.unidades,o.lineas++,o) : {key,label:r.departamento||"SIN UBICACIÓN",venta:0,unidades:0,lineas:0}).sort((a,b)=>b.venta-a.venta);
+  }
+
+  function groupDist(rows,dept="LIMA"){
+    return group(rows.filter(r=>!dept||norm(r.departamento)===norm(dept)),r=>norm(r.distrito),(o,r,key)=> o? (o.venta+=r.venta,o.unidades+=r.unidades,o.lineas++,o) : {key,label:r.distrito||"SIN DISTRITO",venta:0,unidades:0,lineas:0}).sort((a,b)=>b.venta-a.venta);
+  }
+
+  function topProducts(rows,dept,dist,metric="venta"){
+    let f=rows.slice();
+    if(dept) f=f.filter(r=>norm(r.departamento)===norm(dept));
+    if(dist) f=f.filter(r=>norm(r.distrito)===norm(dist));
+    const g=group(f,r=>r.sku+"|"+r.producto,(o,r,key)=> o? (o.venta+=r.venta,o.unidades+=r.unidades,o.lineas++,o) : {key,sku:r.sku,producto:r.producto||r.sku,venta:0,unidades:0,lineas:0});
+    return g.sort((a,b)=>metric==="unidades" ? b.unidades-a.unidades : b.venta-a.venta).slice(0,5);
+  }
+
+  function zoneOptions(rows){
+    const depts=[...new Set(rows.map(r=>r.departamento).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+    const dists=[...new Set(rows.filter(r=>!window.LB_V53_DEPT || norm(r.departamento)===norm(window.LB_V53_DEPT)).map(r=>r.distrito).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+    return {depts,dists};
+  }
+
+  function bars(rows,metric="venta"){
+    const max=Math.max(1,...rows.map(r=>metric==="unidades"?r.unidades:r.venta));
+    return `<div class="lbv53-bars">${rows.map(r=>`
+      <div class="lbv53-bar">
+        <b title="${esc2(r.producto||r.label)}">${esc2(r.producto||r.label)}</b>
+        <div class="lbv53-track"><i style="width:${Math.max(4,((metric==="unidades"?r.unidades:r.venta)/max)*100)}%"></i></div>
+        <div class="num">${metric==="unidades"?int(r.unidades):money(r.venta)}</div>
+      </div>`).join("")}</div>`;
+  }
+
+  function productsTable(rows){
+    return `<div class="lbv53-scroll"><table class="lbv53-table"><thead><tr>
+      <th>SKU</th><th>Producto</th><th class="num">Unidades</th><th class="num">Monto sin IGV</th><th class="num">Líneas</th>
+    </tr></thead><tbody>${rows.map(r=>`<tr>
+      <td>${esc2(r.sku)}</td><td>${esc2(r.producto)}</td><td class="num">${int(r.unidades)}</td><td class="num">${money(r.venta)}</td><td class="num">${int(r.lineas)}</td>
+    </tr>`).join("")}</tbody></table></div>`;
+  }
+
+  function deptTable(rows){
+    return `<div class="lbv53-scroll"><table class="lbv53-table"><thead><tr>
+      <th>Departamento</th><th class="num">Monto sin IGV</th><th class="num">Unidades</th><th class="num">Líneas</th>
+    </tr></thead><tbody>${rows.map(r=>`<tr>
+      <td>${esc2(r.label)}</td><td class="num">${money(r.venta)}</td><td class="num">${int(r.unidades)}</td><td class="num">${int(r.lineas)}</td>
+    </tr>`).join("")}</tbody></table></div>`;
+  }
+
+  function buildDemografiaHTML(rows){
+    const dept=window.LB_V53_DEPT||"";
+    const dist=window.LB_V53_DIST||"";
+    const metric=window.LB_V53_METRIC||"venta";
+    const opts=zoneOptions(rows);
+    const filtered=rows.filter(r=>(!dept||norm(r.departamento)===norm(dept))&&(!dist||norm(r.distrito)===norm(dist)));
+    const depts=groupDept(rows);
+    const dists=groupDist(rows,dept||"LIMA");
+    const topMonto=topProducts(rows,dept,dist,"venta");
+    const topUnid=topProducts(rows,dept,dist,"unidades");
+    const totalVenta=filtered.reduce((s,r)=>s+r.venta,0);
+    const totalUnid=filtered.reduce((s,r)=>s+r.unidades,0);
+    const zoneName=dist || dept || "Todas las zonas";
+
+    return `
+      <div class="lbv53-zone">
+        <select id="lbv53Dept">
+          <option value="">Todo Perú</option>${opts.depts.map(x=>`<option ${x===dept?"selected":""}>${esc2(x)}</option>`).join("")}
+        </select>
+        <select id="lbv53Dist">
+          <option value="">Todos los distritos/ciudades</option>${opts.dists.map(x=>`<option ${x===dist?"selected":""}>${esc2(x)}</option>`).join("")}
+        </select>
+        <select id="lbv53Metric">
+          <option value="venta" ${metric==="venta"?"selected":""}>Mapa por monto</option>
+          <option value="unidades" ${metric==="unidades"?"selected":""}>Mapa por unidades</option>
+        </select>
+        <button class="btn sm" id="lbv53Clear">Limpiar zona</button>
+      </div>
+
+      <div class="grid kpis">
+        ${App.kpiCard ? App.kpiCard({lbl:"Zona",val:esc2(zoneName),sub:"PrestaShop",src:"der"}) : ""}
+        ${App.kpiCard ? App.kpiCard({lbl:"Monto sin IGV",val:money(totalVenta),sub:"solo PrestaShop",src:"der"}) : ""}
+        ${App.kpiCard ? App.kpiCard({lbl:"Unidades",val:int(totalUnid),sub:"productos/componentes",src:"der"}) : ""}
+        ${App.kpiCard ? App.kpiCard({lbl:"Productos únicos",val:int(new Set(filtered.map(r=>r.sku)).size),sub:"con ubicación",src:"der"}) : ""}
+      </div>
+
+      <div class="lbv53-grid">
+        <div class="lbv53-card">
+          <h3>Mapa Perú · ventas PrestaShop</h3>
+          <div class="ch-sub">Se pinta por ${metric==="unidades"?"unidades":"monto sin IGV"}. Click en un departamento para ver sus Top 5 productos.</div>
+          <div class="lbv53-map"><svg id="lbv53PeruSvg"></svg><div id="lbv53Tip" class="lbv53-tip"></div></div>
+        </div>
+        <div class="lbv53-card">
+          <h3>Top 5 productos por monto</h3>
+          ${topMonto.length?productsTable(topMonto):'<div class="empty">No hay productos para esta zona.</div>'}
+          <h3 style="margin-top:16px">Top 5 productos por unidades</h3>
+          ${topUnid.length?productsTable(topUnid):'<div class="empty">No hay productos para esta zona.</div>'}
+        </div>
+      </div>
+
+      <div class="grid two" style="margin-top:16px">
+        <div class="card">
+          <h3>Ranking departamentos</h3>
+          ${deptTable(depts)}
+        </div>
+        <div class="card">
+          <h3>${dept ? "Ranking distritos/ciudades de "+esc2(dept) : "Ranking distritos/ciudades de Lima"}</h3>
+          ${deptTable(dists.map(x=>({...x,label:x.label})))}
+        </div>
+      </div>
+      <div class="lbv53-note">Esta vista usa solo PrestaShop normalizado: <b>base_productos_norm_v47</b> cruzado con ubicación de <b>base_packs_dedup_v47</b>. No usa ventas_general ni detalle_erp.</div>
+    `;
+  }
+
+  async function ensureGeo(){
+    if(window.LB_V53_GEO)return window.LB_V53_GEO;
+    for(const url of GEOJSON_URLS){
+      try{const r=await fetch(url,{cache:"force-cache"}); if(r.ok){window.LB_V53_GEO=await r.json(); return window.LB_V53_GEO;}}catch(e){}
+    }
+    throw new Error("GeoJSON no disponible");
+  }
+  function getName(f){const p=f.properties||{};return p.NOMBDEP||p.NOMB_DPTO||p.DEPARTAMEN||p.DEPARTAMENTO||p.name||p.NAME||"";}
+
+  async function drawMap(rows){
+    if(!window.d3)return;
+    const svgNode=document.getElementById("lbv53PeruSvg");
+    if(!svgNode)return;
+    const geo=await ensureGeo();
+    const svg=d3.select(svgNode); svg.selectAll("*").remove();
+    const metric=window.LB_V53_METRIC||"venta";
+    const agg=groupDept(rows);
+    const byKey=new Map(agg.map(x=>[x.key,x]));
+    const max=Math.max(1,...agg.map(x=>metric==="unidades"?x.unidades:x.venta));
+    const color=d3.scaleSequential().domain([0,max]).interpolator(d3.interpolateRgbBasis(["#f4e6eb","#d6a7b6","#9b6278","#5e3650"]));
+    const w=svgNode.clientWidth||820, h=svgNode.clientHeight||570;
+    svg.attr("viewBox",`0 0 ${w} ${h}`);
+    const g=svg.append("g");
+    const projection=d3.geoMercator().fitExtent([[30,30],[w-30,h-30]],geo);
+    const path=d3.geoPath(projection);
+    const tip=document.getElementById("lbv53Tip");
+    const zoom=d3.zoom().scaleExtent([1,7]).on("zoom",ev=>g.attr("transform",ev.transform));
+    svg.call(zoom);
+    g.selectAll("path").data(geo.features).join("path")
+      .attr("class","lbv53-dept")
+      .classed("active",f=>norm(getName(f))===norm(window.LB_V53_DEPT||""))
+      .attr("d",path)
+      .attr("fill",f=>{const d=byKey.get(norm(getName(f))); return d?color(metric==="unidades"?d.unidades:d.venta):"#f1e8e4";})
+      .on("mouseenter",(ev,f)=>{
+        const d=byKey.get(norm(getName(f)))||{label:getName(f),venta:0,unidades:0,lineas:0};
+        const top=topProducts(rows,d.label,"","venta").slice(0,3);
+        tip.innerHTML=`<h4>${esc2(getName(f))}</h4>
+          <div class="r"><span>Monto sin IGV</span><b>${money(d.venta)}</b></div>
+          <div class="r"><span>Unidades</span><b>${int(d.unidades)}</b></div>
+          <div style="margin-top:8px;color:#756269">Top: ${top.map(x=>esc2(x.producto)).join(", ")||"sin ventas"}</div>`;
+        tip.style.left=ev.clientX+"px"; tip.style.top=ev.clientY+"px"; tip.classList.add("show");
+      })
+      .on("mousemove",ev=>{tip.style.left=ev.clientX+"px";tip.style.top=ev.clientY+"px";})
+      .on("mouseleave",()=>tip.classList.remove("show"))
+      .on("click",(ev,f)=>{
+        window.LB_V53_DEPT=getName(f).toUpperCase();
+        window.LB_V53_DIST="";
+        renderV53();
+      });
+  }
+
+  async function renderV53(){
+    const content=document.getElementById("content");
+    if(!content)return;
+    content.innerHTML=`<div class="card"><div class="empty">Cargando ventas demográficas de PrestaShop…</div></div>`;
+    try{
+      const rows=await loadProductZones();
+      content.innerHTML=buildDemografiaHTML(rows);
+      const title=document.getElementById("pageTitle"); if(title)title.textContent="Ventas demográficas";
+      document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab==="ventas_demograficas_v53"));
+      document.getElementById("lbv53Dept").onchange=e=>{window.LB_V53_DEPT=e.target.value; window.LB_V53_DIST=""; renderV53();};
+      document.getElementById("lbv53Dist").onchange=e=>{window.LB_V53_DIST=e.target.value; renderV53();};
+      document.getElementById("lbv53Metric").onchange=e=>{window.LB_V53_METRIC=e.target.value; renderV53();};
+      document.getElementById("lbv53Clear").onclick=()=>{window.LB_V53_DEPT="";window.LB_V53_DIST="";renderV53();};
+      await drawMap(rows);
+    }catch(e){
+      console.error(e);
+      content.innerHTML=`<div class="card"><div class="empty"><div class="e-ic">ERR</div><div class="e-t">No se pudo cargar Ventas demográficas</div><div class="muted">${esc2(e.message||e)}</div><div style="margin-top:12px"><button class="btn primary" onclick="window.LB_RENDER_V53()">Reintentar</button></div></div></div>`;
+    }
+  }
+
+  window.LB_RENDER_V53=renderV53;
+
+  function injectTab(){
+    cleanButtons();
+    const nav=document.getElementById("nav");
+    if(!nav)return setTimeout(injectTab,300);
+
+    // Remove old failing demographic buttons if any.
+    nav.querySelectorAll('[data-tab="ventas_demograficas"],[data-tab="ventas_demograficas_v53"]').forEach(x=>x.remove());
+
+    const btn=document.createElement("button");
+    btn.dataset.tab="ventas_demograficas_v53";
+    btn.textContent="Ventas demográficas";
+    btn.onclick=()=>{location.hash="ventas_demograficas_v53"; renderV53();};
+
+    const after=nav.querySelector('[data-tab="calor"]') || nav.querySelector('[data-tab="timeline"]') || nav.lastElementChild;
+    if(after) after.insertAdjacentElement("afterend",btn); else nav.appendChild(btn);
+
+    if(location.hash==="#ventas_demograficas" || location.hash==="#ventas_demograficas_v53"){
+      renderV53();
+    }
+  }
+
+  function init(){
+    setEndpoint();
+    cleanButtons();
+
+    // Patch App.go only for our tab, without relying on TABS.
+    if(window.App && !App._v53Patched){
+      App._v53Patched=true;
+      const oldGo=App.go;
+      App.go=function(id){
+        if(id==="ventas_demograficas"||id==="ventas_demograficas_v53"){
+          location.hash="ventas_demograficas_v53";
+          renderV53();
+          return;
+        }
+        return oldGo.call(this,id);
+      };
+      const oldBuild=App.buildNav;
+      App.buildNav=function(){ const r=oldBuild.call(this); setTimeout(injectTab,50); return r; };
+      const oldLoad=App.cargarDesdeGoogleSheets;
+      App.cargarDesdeGoogleSheets=async function(){
+        setEndpoint();
+        const r=typeof oldLoad==="function"?await oldLoad.call(this):null;
+        window.LB_V53_PRODUCT_ZONES=null;
+        if(location.hash==="#ventas_demograficas_v53") renderV53();
+        setTimeout(injectTab,100);
+        return r;
+      };
+    }
+
+    injectTab();
+    setTimeout(injectTab,900);
+    window.addEventListener("hashchange",()=>{if(location.hash==="#ventas_demograficas"||location.hash==="#ventas_demograficas_v53")renderV53();});
+  }
+
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(init,500));
+  else setTimeout(init,500);
+})();
+</script>
+
 </body>
 </html>
